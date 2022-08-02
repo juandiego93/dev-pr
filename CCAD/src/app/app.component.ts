@@ -40,7 +40,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   getServices() {
-    debugger
     this.requestParameter.name = 'URLServicios';
     this.dataParametroService.postParameter(this.requestParameter)
       .subscribe(
