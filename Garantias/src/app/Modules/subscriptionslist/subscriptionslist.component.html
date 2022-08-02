@@ -1,0 +1,38 @@
+<mat-card class="mat-borders">
+  <mat-card-content>
+<div style="position: relative;">
+  <div class="divBtnRound">
+    <button class="btnCerrarPopUp" [mat-dialog-close]="false">Cerrar</button>
+  </div>
+</div>
+<div class="app-font-title text-shadow center">Suscripciones cliente</div>
+<div class= "gray-line"></div>
+<br/>
+<div class="app-label">Selecciona una suscripción</div>
+<br/>
+  <table mat-table [dataSource]="data" matSort>
+    <ng-container matColumnDef="min" mat-sort-header>
+      <th mat-header-cell *matHeaderCellDef>MIN</th>
+      <td mat-cell *matCellDef="let element">{{element.servicesAccount[0].subscriberNumber}}</td>
+    </ng-container>
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>Tipo</th>
+      <td mat-cell *matCellDef="let element">{{element.servicesAccount[0].type}}</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let element">{{element.servicesAccount[0].status}}</td>
+    </ng-container>
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>Seleccionar</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="SelectedSuscription(element)">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="header-row"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </mat-card-content>
+</mat-card>

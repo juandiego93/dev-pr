@@ -1,0 +1,5 @@
+<form  id="myfrm"  name="myfrm" target="frameRedirect"  method="POST">
+</form>
+
+<iframe (load)="LoadEvent()" id="frameRedirect" style="display: block; border: none; height: 100vh; width: 100vw;"  [src]="endPoint | safeResourceUrl"></iframe>
+

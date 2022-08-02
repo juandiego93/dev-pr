@@ -1,0 +1,82 @@
+<div class="expansion-panel-body modalBorder">
+  <div style="position: relative;">
+    <div class="divBtnRound">
+      <button class="btnCerrarPopUp" (click)="CloseDialog(false)"> Cerrar</button>
+    </div>
+  </div>
+  <div mat-dialog-content>
+    <div class="app-font-title text-shadow">{{titleModal}}</div>
+    <hr class="app-linea-roja" [ngStyle]="{'width':titleModal.toLowerCase().includes('generar') ? '55%' : '50%' }">
+    <form [formGroup]="cashInvoiceForm" id="cashInvoiceForm">
+      <div class="grid-detail-container">
+
+        <div class="app-label labelReference">Referencia: </div>
+        <div class="boxReference">
+          <input type="text" class="form-control" formControlName="reference" />
+        </div>
+
+        <div class="app-label labelDocumentType">Tipo documento: </div>
+        <div class="boxDocumentType">
+          <select id="mySelect" class="form-control" formControlName="documentType">
+            <option *ngFor="let type of documentTypes" [value]="type.Code">{{type.Description}}</option>
+          </select>
+        </div>
+
+        <div class="app-label labelDocumentNumber">Número documento: </div>
+        <div class="boxDocumentNumber"><input type="text" class="form-control" formControlName="documentNumber" /></div>
+
+        <div class="app-label labelName">Nombres: </div>
+        <div class="boxName"><input type="text" class="form-control" formControlName="name" />
+        </div>
+
+        <div class="app-label labelSurName">Apellidos: </div>
+        <div class="boxSurName"><input type="text" class="form-control" formControlName="surname" />
+        </div>
+
+        <div class="app-label labelMail">Correo Electrónico: </div>
+        <div class="boxMail">
+          <input type="text" class="form-control" [ngStyle]='{"border-color": (email.errors?.required || email.errors?.pattern) && !email.pristine && email.touched ? "red" : ""}' formControlName="email" />
+          <div *ngIf="email.errors?.required && !email.pristine && email.touched" style="color: red; font-size: small;" >El correo es obligatorio</div>
+          <div *ngIf="email.errors?.pattern && !email.pristine && email.touched" style="color: red; font-size: small;" >Formato de correo no válido</div>
+        </div>
+
+        <div class="app-label labelAccount">Cuenta: </div>
+        <div class="boxAccount"><input type="text" class="form-control" formControlName="account" />
+        </div>
+
+        <div class="app-label labelConcept">Concepto: </div>
+        <div class="boxConcept"><input type="text" class="form-control" formControlName="concept" />
+        </div>
+
+        <div class="app-label labelUserId">Identificador del usuario: </div>
+        <div class="boxUserId"><input type="text" class="form-control" formControlName="userId"/>
+        </div>
+
+        <div class="app-label labelOrderType">Tipo de orden: </div>
+        <div class="boxOrderType"><input type="text" class="form-control" formControlName="orderType" /></div>
+
+        <div class="app-label labelProductId">Identificación del producto: </div>
+        <div class="boxProductId"><input type="text" class="form-control" formControlName="productId" /></div>
+
+        <div class="app-label labelProductName">Nombre del producto: </div>
+        <div class="boxProductName"><input type="text" class="form-control" formControlName="productName" /></div>
+
+        <div class="app-label labelCavName">Nombre CAV: </div>
+        <div class="boxCavName"><input type="text" class="form-control" formControlName="nameCav" /></div>
+
+        <div class="app-label labelCavCity">Ciudad CAV: </div>
+        <div class="boxCavCity"><input type="text" class="form-control" formControlName="cityCav" /></div>
+
+        <div class="app-label labelPaymentValue">{{valuePaymentString}} </div>
+        <div class="boxPaymentValue"><input type="text" class="form-control" formControlName="paymentValue"
+           [value]="cashInvoice.paymentValue | currency"/></div>
+
+        <div class="buttons">
+          <div>
+            <button class="RenderButton green" (click)="submitCashInvoice()" style="text-transform: capitalize;">{{buttonString}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

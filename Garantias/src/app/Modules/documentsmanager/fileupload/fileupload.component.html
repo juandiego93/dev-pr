@@ -1,0 +1,24 @@
+<div class="row col-xs-12">
+  <input #valueFile id="archivo" type="file" accept=".doc,.pdf,.jpeg,.jpg" class="form-control" [disabled]="util.fullfilledField(guarantee.namesUploadedFiles) && guarantee.namesUploadedFiles.length !== 0"
+    (change)="onFileSelected($event)" style="width: 50%; display: inline;">
+  <button type="button" class="RenderButton red" (click)="onUploadFile()" style="width: 15%;" [disabled]="util.fullfilledField(guarantee.namesUploadedFiles) && guarantee.namesUploadedFiles.length !== 0">
+    Adjuntar
+  </button>
+</div>
+<div disabled="true" *ngIf="filesUploaded.length !== 0" class="col-12 py-3">
+  <h5 class="mensajes-negrita text-success">Lista de documentos adjuntos:</h5>
+  <ul *ngFor="let file of filesUploaded" style="list-style-type:none;">
+    <li><img alt="icono-delete" src="assets/images/icono-delete.png" (click)="onDeleteFileName(file.name)"><label
+        class="lblName">{{file.name}}<img src={{file.src}} style="margin-right: 1%;"></label>
+    </li>
+  </ul>
+</div>
+<div disabled="true" *ngIf="util.fullfilledField(guarantee.namesUploadedFiles) && guarantee.namesUploadedFiles.length !== 0"
+  class="col-12 py-3">
+  <h5 class="mensajes-negrita text-success">Lista de documentos guardados:</h5>
+  <ul *ngFor="let name of guarantee.namesUploadedFiles" style="list-style-type:none;">
+    <li><label class="lblName">{{name}}<img alt="imageUpload" src="assets/images/Icono-check.png"
+          style="margin-right: 1%;"></label>
+    </li>
+  </ul>
+</div>

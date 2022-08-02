@@ -1,0 +1,55 @@
+.grid-detail-container {
+  display: grid;
+  grid-template-columns: repeat(2, 100px) repeat(2, 140px);
+  grid-template-rows: 3px repeat(8, 30px);
+  gap: 5px;
+  grid-template-areas:
+    ". . . ."
+    "label1 label1 box1 box1"
+    "label2 label2 box2 box2"
+    "label3 label3 box3 box3"
+    "label4 label4 box4 box4"
+    "label5 label5 box5 box5"
+    "label6 label6 box6 box6"
+    "label7 label7 box7 box7"
+    "label8 label8 box8 box8"
+    "buttons buttons buttons buttons"
+}
+.label1 { grid-area: label1; font-weight: 700;  padding: 5px;}
+.label2 { grid-area: label2; font-weight: 700; padding: 5px;}
+.label3 { grid-area: label3; font-weight: 700; padding: 5px;}
+.label4 { grid-area: label4; font-weight: 700; padding: 5px;}
+.label5 { grid-area: label5; font-weight: 700; padding: 5px;}
+.label6 { grid-area: label6; font-weight: 700; padding: 5px;}
+.label7 { grid-area: label7; font-weight: 700; padding: 5px;}
+.label8 { grid-area: label8; font-weight: 700; padding: 5px;}
+
+.box1 { grid-area: box1; padding: 5px;}
+.box2 { grid-area: box2; padding: 5px;}
+.box3 { grid-area: box3; padding: 5px;}
+.box4 { grid-area: box4; padding: 5px;}
+.box5 { grid-area: box5; padding: 5px;}
+.box6 { grid-area: box6; padding: 5px;}
+.box7 { grid-area: box7; padding: 5px;}
+.box8 { grid-area: box8; padding: 5px;}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  grid-area: buttons;
+  width: 100%;
+  height: 30px;
+  div {
+    padding-bottom:5px;
+    padding-top:5px;
+    margin-right: 10px;
+    button {
+      width: 200px;
+    }
+  }
+}
+
+.modalBorder {
+  border: rgba(130, 130, 130, 0.7) 1px solid
+}

@@ -1,0 +1,24 @@
+<mat-card>
+  <div class="col-12">
+    <h4 class="mensajes-negrita"><img src="assets/images/Icono documentos-ok.png" style="max-height: 30px;"> Documentos
+      adjuntos
+      <p><small class="bg-gray text-muted mx-2">
+        Tamaño máximo 2 megabytes (2MB). Formatos permitidos .doc, .pdf, .jpeg, .jpg</small></p>
+    </h4>
+  </div>
+  <mat-card-content>
+    <mat-card>
+      <mat-card-content>
+        <div class="col-6">
+          <app-fileupload [anexo1]=anexo [guarantee]="guarantee" (generateListDocument)="OnGenerateListDocument($event)"></app-fileupload>
+        </div>
+        <div class="row" style="margin-bottom: 3%;">
+          <div class="col-8 offset-4 text-end">
+            <button (click)="SaveUploadedFiles()" class="RenderButton green" style="width: 15%; float: right; margin: 3%;"
+              [disabled]="!guarantee.allowUpload">Guardar documentos</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

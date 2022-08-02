@@ -1,0 +1,43 @@
+<div class="expansion-panel-body">
+  <div style="position: relative;">
+    <div class="divBtnRound">
+      <button class="btnCerrarPopUp" [mat-dialog-close]> Cerrar</button>
+    </div>
+  </div>
+  <div class="app-font-title text-shadow">Envío a correo electrónico</div>
+  <hr class="app-linea-roja" style="width: 270px;">
+  <div class="grid-send-email-container">
+    <div class="app-label label0">Ingrese el correo electrónico al cual será enviado el documento adjunto Orden de Salida (ODS). </div>
+    <div class="app-label label1">Documento a enviar: </div>
+    <div class="box1">
+      <a *ngIf="generated" [href]="pdfBase64 | domSanitizer" download="FormatoODS.pdf">
+        {{ textDownload }}
+      </a>
+    </div>
+    <div class="app-label label2">Correo electrónico: </div>
+    <div class="box2">
+      <input
+        id="email-field"
+        name="email"
+        type="email"
+        class="form-control"
+        [readonly]="loading"
+        [(ngModel)]="email"
+        (keyup)="validateEmailField()"
+        placeholder="ejemplo@dominio.com"
+        required/></div>
+    <span class="error-text">{{ errorText }}</span>
+    <div class="button">
+      <div>
+        <button class="RenderButton green" [disabled]="loading" [ngClass]="{disabled: loading}" (click)="sendEmail()" >Enviar Correo</button>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+<iframe [src]="data | domSanitizer" style="display: none;"></iframe>
+
+

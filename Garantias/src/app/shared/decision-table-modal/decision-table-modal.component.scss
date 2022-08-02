@@ -1,0 +1,19 @@
+.row {
+  width: 100%;
+  text-align: center; // center the content of the container
+}
+
+.block {
+  width: 100px;
+  display: inline-block; // display inline with ability to provide width/height
+  padding-left: 1em;
+  vertical-align: sub;
+  margin-bottom:10px;
+}
+.contQuestion{
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+
+

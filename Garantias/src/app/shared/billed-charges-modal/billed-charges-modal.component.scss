@@ -1,0 +1,74 @@
+.button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    grid-area: buttons;
+    width: 100%;
+    div {
+        padding-bottom:5px;
+        padding-top:5px;
+        margin-right: 10px;
+        button {
+        width: 120px;
+        text-transform: capitalize;
+        }
+    }
+}
+  
+  .modalBorder {
+    border: rgba(130, 130, 130, 0.7) 1px solid
+  }
+
+.cont-ajustes{
+    font-size: 14px;
+    // height: 400px;
+    overflow: auto;
+    width: 600px;
+}
+.col-ajustes-1, .col-ajustes-2 {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: top;
+}
+.col-ajustes-1{
+    width: 70%;
+}
+.col-ajustes-2{
+    width: 30%;
+}
+.to-right{
+    text-align: right;
+}
+.pos-left{
+    margin-left: -10px;
+}
+.ajust-btn{
+    text-transform: initial;
+    width: 125px;    
+}
+.table-ajustes{
+    width: 100%;
+}
+.table-ajustes, .table-ajustes th, .table-ajustes td{
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+    padding: 3px;
+    text-align: center;
+}
+.cols-ajust-foot{
+    display: inline-block;
+    width: 35%;
+}
+.cols-ajust-foot label{
+    padding-right: 5px;
+}
+.cols-ajust-foot input, .cols-ajust-foot select{
+    width: 100px;
+}
+.cols-ajust-foot select, .cols-ajust-foot input {
+    border: 1px solid;
+    color: #008000;
+}
+.separ-adjust{
+    margin-bottom: 15px;
+}

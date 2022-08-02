@@ -1,0 +1,71 @@
+.grid-detail-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5px;
+    grid-template-areas:
+    ". ."
+      "labelReference boxReference"
+      "labelDocumentType boxDocumentType"
+      "labelDocumentNumber boxDocumentNumber"
+      "labelName boxName"
+      "labelSurName boxSurName"
+      "labelMail boxMail"
+      "labelAccount boxAccount"
+      "labelConcept boxConcept"
+      "labelUserId boxUserId"
+      "labelOrderType boxOrderType"
+      "labelProductId boxProductId"
+      "labelProductName boxProductName"
+      "labelCavName boxCavName"
+      "labelCavCity boxCavCity"
+      "labelPaymentValue boxPaymentValue"
+      ". buttons"
+  }
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    grid-area: buttons;
+    width: 100%;
+    height: 30px;
+    div {
+      padding-bottom:5px;
+      padding-top:5px;
+      margin-right: 10px;
+      button {
+        width: 200px;
+      }
+    }
+  }
+.labelReference { grid-area: labelReference; font-weight: 700;  padding: 5px;}
+.labelDocumentType { grid-area: labelDocumentType; font-weight: 700;  padding: 5px;}
+.labelDocumentNumber { grid-area: labelDocumentNumber; font-weight: 700;  padding: 5px;}
+.labelName { grid-area: labelName; font-weight: 700;  padding: 5px;}
+.labelSurName { grid-area: labelSurName; font-weight: 700;  padding: 5px;}
+.labelMail { grid-area: labelMail; font-weight: 700;  padding: 5px;}
+.labelAccount { grid-area: labelAccount; font-weight: 700;  padding: 5px;}
+.labelConcept { grid-area: labelConcept; font-weight: 700;  padding: 5px;}
+.labelUserId { grid-area: labelUserId; font-weight: 700;  padding: 5px;}
+.labelOrderType { grid-area: labelOrderType; font-weight: 700;  padding: 5px;}
+.labelProductId { grid-area: labelProductId; font-weight: 700;  padding: 5px;}
+.labelProductName { grid-area: labelProductName; font-weight: 700;  padding: 5px;}
+.labelCavName { grid-area: labelCavName; font-weight: 700;  padding: 5px;}
+.labelCavCity { grid-area: labelCavCity; font-weight: 700;  padding: 5px;}
+.labelPaymentValue { grid-area: labelPaymentValue; font-weight: 700;  padding: 5px;}
+
+.boxReference { grid-area: boxReference; padding: 5px;}
+.boxDocumentType { grid-area: boxDocumentType; padding: 5px;}
+.boxDocumentNumber { grid-area: boxDocumentNumber; padding: 5px;}
+.boxName { grid-area: boxName; padding: 5px;}
+.boxSurName { grid-area: boxSurName; padding: 5px;}
+.boxMail { grid-area: boxMail; padding: 5px;}
+.boxAccount { grid-area: boxAccount; padding: 5px;}
+.boxConcept { grid-area: boxConcept; padding: 5px;}
+.boxUserId { grid-area: boxUserId; padding: 5px;}
+.boxOrderType { grid-area: boxOrderType; padding: 5px;}
+.boxProductId { grid-area: boxProductId; padding: 5px;}
+.boxProductName { grid-area: boxProductName; padding: 5px;}
+.boxCavName { grid-area: boxCavName; padding: 5px;}
+.boxCavCity { grid-area: boxCavCity; padding: 5px;}
+.boxPaymentValue { grid-area: boxPaymentValue; padding: 5px;}
+

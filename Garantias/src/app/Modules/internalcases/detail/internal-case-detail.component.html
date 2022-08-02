@@ -1,0 +1,159 @@
+<div class="expansion-panel-body modalBorder">
+  <div class="app-font-title text-shadow">{{titleModal}}</div>
+  <hr class="app-linea-roja" [ngStyle]="{'width':titleModal.toLowerCase().includes('crear') ? '105px' : '260px' }">
+    <div class="grid-detail-container">
+
+      <!-- <div class="app-label labelIdCase">ID Caso: </div>
+      <div class="boxIdCase">
+        <input type="number" [(ngModel)]="caseUpdate.idInternalcase" class="form-control form-control-detail"
+          [disabled]="true" />
+      </div> -->
+
+      <div class="app-label labelIdCase">ID ODS: </div>
+      <div class="boxIdCase">
+        <input type="text" [(ngModel)]="caseUpdate.idOds" class="form-control form-control-detail"
+          [disabled]="true" />
+      </div>
+
+
+      <div class="app-label labelDate">Fecha de modificacion: </div>
+      <div class="boxDate">
+        <input type="text" [(ngModel)]="dateUpdate" class="form-control form-control-detail"
+          [ngClass]="{'invalid-form': internalCaseValues.entryDate}" [disabled]="true" />
+      </div>
+
+      <div class="app-label labelState">Estado: </div>
+      <div class="boxState">
+        <select required name="miselect" [(ngModel)]="caseUpdate.state" class="form-control form-control-detail"
+          [ngClass]="{'invalid-form': internalCaseValues.state}" [disabled]="disabledState" >
+          <option [value]="item.id" *ngFor="let item of listCaseStates">{{item.description}}</option>
+        </select>
+        <div *ngIf="internalCaseValues.state" class="invalid-feedback">Valor requerido.</div>
+      </div>
+
+      <div class="app-label labelObservations">Observaciones: </div>
+      <div class="boxObservations">
+        <textarea rows="4" type="text" [(ngModel)]="caseUpdate.observations" class="form-control form-control-detail"
+          (keyup)="OnKeyUp(caseUpdate.observations, 'observations')"></textarea>
+        <div *ngIf="internalCaseValues.observations && caseUpdate.observations !== ''" class="invalid-feedback">
+          Caracter invalido.
+        </div>
+      </div>
+
+      <ng-container *ngIf="((isOld && showPaymentCheck) || !updateODS)">
+        <div class="app-label labelPaymentDone">Pago realizado por el cliente: </div>
+        <div class="check-grid-container boxPaymentDone">
+          <div class="lblYes app-label">Si</div>
+          <div class="checkYes">
+            <label class="switch">
+              <input #checkYes type="checkbox" [checked]="paymentMade"
+                (change)="paymentMade = !paymentMade" [disabled]="disablePaymentDone">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="lblNo app-label">No</div>
+          <div class="checkNo">
+            <label class="switch">
+              <input #checkNo type="checkbox" [checked]="!paymentMade"
+                (change)="paymentMade = !paymentMade" [disabled]="disablePaymentDone">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="app-label labelPriority">Prioridad alta: </div>
+      <div class="check-grid-container boxPriority">
+        <div class="lblYes app-label">Si</div>
+        <div class="checkYes">
+          <label class="switch">
+            <input #checkYes type="checkbox" [checked]="caseUpdate.hasPriority"
+              (change)="caseUpdate.hasPriority = !caseUpdate.hasPriority" [disabled]="disabledHightPriority" >
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="lblNo app-label">No</div>
+        <div class="checkNo">
+          <label class="switch">
+            <input #checkNo type="checkbox" [checked]="!caseUpdate.hasPriority"
+              (change)="caseUpdate.hasPriority = !caseUpdate.hasPriority" [disabled]="disabledHightPriority">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+
+      <ng-container *ngIf="(isOld && showStockAvailabilty) ">
+        <div class="app-label labelStock">Estado stock 01 Disponible: </div>
+        <div class="check-grid-container boxStock">
+          <div class="lblYes app-label">Si</div>
+          <div class="checkYes">
+            <label class="switch">
+              <input #checkYes type="checkbox" [checked]="caseUpdate.stock"
+                    (change)="caseUpdate.stock = !caseUpdate.stock" [disabled]="disableStock"  >
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="lblNo app-label">No</div>
+          <div class="checkNo">
+            <label class="switch">
+              <input #checkNo type="checkbox" [checked]="!caseUpdate.stock"
+                (change)="caseUpdate.stock = !caseUpdate.stock" [disabled]="disableStock" >
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="showMemorandumCheck">
+          <div class="app-label labelMemorandum">Memorando de aceptación por incumplimiento en tiempos: </div>
+          <div class="check-grid-container boxMemorandum">
+            <div class="lblYes app-label">Si</div>
+            <div class="checkYes">
+              <label class="switch">
+                <input #checkYes type="checkbox" [checked]="memorandumAccepted"
+                  (change)="memorandumAccepted = !memorandumAccepted">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="lblNo app-label">No</div>
+            <div class="checkNo">
+              <label class="switch">
+                <input #checkNo type="checkbox" [checked]="!memorandumAccepted"
+                  (change)="memorandumAccepted = !memorandumAccepted">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+      </ng-container>
+
+      <ng-container *ngIf="showReceiveReturnedProductCheck">
+        <div class="app-label labelReceiveReturnedProduct">Recibir producto devuelto: </div>
+        <div class="check-grid-container boxReceiveReturnedProduct">
+          <div class="lblYes app-label">Si</div>
+          <div class="checkYes">
+            <label class="switch">
+              <input #checkYes type="checkbox" [checked]="receiveReturnedProductChecked"
+                (change)="receiveReturnedProductChecked = !receiveReturnedProductChecked">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="lblNo app-label">No</div>
+          <div class="checkNo">
+            <label class="switch">
+              <input #checkNo type="checkbox" [checked]="!receiveReturnedProductChecked"
+                (change)="receiveReturnedProductChecked = !receiveReturnedProductChecked">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+    </ng-container>
+
+      <div class="buttons">
+        <div>
+          <button class="RenderButton green" style="text-transform: capitalize;" [disabled]="disableUpdateInternalCase"
+            (click)="SubmitInternalCase()">{{titleButton}}</button>
+        </div>
+      </div>
+
+    </div>
+</div>

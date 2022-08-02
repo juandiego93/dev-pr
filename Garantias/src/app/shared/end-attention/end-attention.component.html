@@ -1,0 +1,35 @@
+<div style="padding-top:10px;" *ngIf="LoadComplete">
+  <div class="divBtnRound_1">
+    <button [mat-dialog-close] class="btnCerrarPopUp">
+      Cerrar
+    </button>
+  </div>
+</div>
+<iframe style=" width: 800px; height: 380px; border: none;" scrolling id="iframeIntegracion" name="iframeIntegracion"></iframe>
+
+
+<div id="myModal" class="modal">
+  <form id="myfrm" name="myfrm" method="POST" [action]="URL"
+    target="iframeIntegracion">
+    <input type="hidden" [value]="urlReturn" name="urlReturn" />
+    <input type="hidden" [value]="documentType" name="documentType" />
+    <input type="hidden" [value]="documentNumber" name="documentNumber" />
+    <input type="hidden" [value]="idTurn" name="idTurn" />
+    <input type="hidden" [value]="idUser" name="idUser" />
+    <input type="hidden" [value]="Min" name="Min" />
+    <input type="hidden" [value]="showCase" name="showCase" />
+    <input type="hidden" [value]="idFlow" name="idFlow" />
+    <input type="hidden" [value]="redirectOutFrame" name="redirectOutFrame" />
+    <input type="hidden" [value]="URL" name="URL" />
+    <input type="hidden" [value]="GUID" name="GUID" />
+    <input type="hidden" [value]="Name" name="Name" />
+    <input type="hidden" [value]="lastName" name="lastName" />
+    <input type="hidden" [value]="MailForResponse" name="MailForResponse" />
+    <input type="hidden" [value]="biHeaderId" name="biHeaderId" />
+    <input type="hidden" [value]="idBI" name="idBI" />
+    <input type="hidden" [value]="context" name="context" />
+    <input type="hidden" [value]="enviroment" name="enviroment" />
+    <input type="hidden" [value]="channelTypeCode" name="channelTypeCode" />
+    <input type="hidden" [value]="accountCode" name="accountCode" />
+  </form>
+</div>

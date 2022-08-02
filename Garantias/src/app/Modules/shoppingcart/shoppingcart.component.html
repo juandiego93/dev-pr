@@ -1,0 +1,42 @@
+<mat-card class="mat-borders">
+    <mat-card-content>
+  <div style="position: relative;">
+    <div class="divBtnRound">
+      <button class="btnCerrarPopUp" [mat-dialog-close]>Cerrar</button>
+    </div>
+  </div>
+  <div class="app-font-title text-shadow center">Items de carrito de compras</div>
+  <div class= "gray-line"></div>
+  <br/>
+    <table mat-table [dataSource]="listItems" matSort>
+      <ng-container matColumnDef="itemParentId" mat-sort-header>
+        <th mat-header-cell *matHeaderCellDef>Parent Id</th>
+        <td mat-cell *matCellDef="let element">{{element.itemParentId}}</td>
+      </ng-container>
+      <ng-container matColumnDef="poIdMain">
+        <th mat-header-cell *matHeaderCellDef>Identificador PO</th>
+        <td mat-cell *matCellDef="let element">{{element.poIdMain}}</td>
+      </ng-container>
+      <ng-container matColumnDef="items">
+        <th mat-header-cell *matHeaderCellDef>Items de carrito</th>
+        <td mat-cell *matCellDef="let element">{{element.items[0].itemID}} {{element.items[0].poName}}  {{element.items[0].action}}</td>
+        <!-- <td mat-cell *matCellDef="let element">
+          <div *ngFor="let subitem of element.items">
+            <p>{{subitem.itemID}} {{subitem.poID}} {{subitem.poName}} </p>
+          </div>
+        </td> -->
+      </ng-container>
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>Eliminar item</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button (click)="DeleteItem(element)">
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="header-row"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    </mat-card-content>
+  </mat-card>
+  

@@ -1,0 +1,10 @@
+{
+    "Files": [
+        {
+            "cluster": [
+                "CLUSTER_CUSSERV"
+            ],
+            "environment": "PROD"
+        }
+    ]
+}

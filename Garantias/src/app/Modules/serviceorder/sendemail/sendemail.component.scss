@@ -1,0 +1,42 @@
+.grid-send-email-container{
+  display: grid;
+  grid-template-columns: repeat(2, 100px) repeat(3, 140px);
+  grid-template-rows: 3px 50px repeat(3, 40px);
+  gap: 5px;
+  grid-template-areas:
+    ". . . . ."
+    "label0 label0 label0 label0 label0"
+    "label1 label1 box1 box1 box1"
+    "label2 label2 box2 box2 box2"
+    "error error error buttons buttons"
+}
+
+.label0 { grid-area: label0; font-weight: 700; padding: 5px;}
+.label1 { grid-area: label1; font-weight: 700; padding: 5px;}
+.label2 { grid-area: label2; font-weight: 700; padding: 5px;}
+.error-text {grid-area: error; color: red; font-size: smaller; padding: 5px;}
+
+.box1 { grid-area: box1; padding: 5px;}
+.box2 { grid-area: box2; padding: 5px;}
+.button1 { grid-area: button1; padding: 5px; button{text-transform: capitalize;}}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  grid-area: buttons;
+  width: 100%;
+  div {
+    padding-bottom:5px;
+    padding-top:5px;
+    margin-right: 10px;
+    button {
+      width: 120px;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.modalBorder {
+  border: rgba(130, 130, 130, 0.7) 1px solid
+}

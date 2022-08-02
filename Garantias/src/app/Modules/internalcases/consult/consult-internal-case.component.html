@@ -1,0 +1,148 @@
+<div class="container">
+  <app-optionspanel *ngIf="!guarantee.originStorer" [internalCase]=guarantee.internalCase [isStorer]=guarantee.originStorer></app-optionspanel>
+  <mat-card style="width:97%">
+    <div class="app-font-title text-shadow">Consulta de casos internos</div>
+    <hr class="app-linea-roja" style="width: 260px;">
+    <br />
+    <mat-card-content>
+      <ng-container *ngIf="guarantee.showCaseQuery">
+        <form [formGroup]="internalCaseForm" id="internalCaseForm">
+          <div class="grid-consult-case-container">
+            <div class="app-label labelImei">Imei: </div>
+            <div class="boxImei"><input type="text" (keyup)="OnKeyUp('imei')" class="form-control" formControlName="imei" />
+              <div *ngIf="internalCaseValues.imei" class="invalid-feedback">Imei no valido.</div>
+            </div>
+            <div class="app-label labelSerial">Serial: </div>
+            <div class="boxSerial"><input type="text" (keyup)="OnKeyUp('serial')" class="form-control" formControlName="serial" />
+              <div *ngIf="internalCaseValues.serial" class="invalid-feedback">Caracter
+                invalido.</div>
+            </div>
+            <div class="app-label labelTypeDoc">Tipo documento: </div>
+            <div class="boxTypeDoc">
+              <select class="form-control" formControlName="documentType">
+                <option *ngFor="let type of this.documentTypes" [value]="type.Code">{{type.Description}}</option>
+              </select>
+              <div *ngIf="(guarantee.submitted && f.documentType.errors)" class="invalid-feedback">
+                  <div *ngIf="f.documentType.errors.required">Por favor, Selecciona un Tipo de Documento</div>
+                </div>
+            </div>
+            <div class="app-label labelNumDoc">Número documento: </div>
+            <div class="boxNumDoc">
+              <input type="text" class="form-control" formControlName="documentNumber" maxlength="18" minlength="3" />
+              <div *ngIf="(f.documentNumber.errors && guarantee.submitted)" class="invalid-feedback">
+                <div *ngIf="f.documentNumber.errors.required">El número de documento es requerido</div>
+                <div *ngIf="f.documentNumber.errors.invalidNumber">Solo se admiten números</div>
+                <div *ngIf="f.documentNumber.errors.maxlength">El número de documento sobrepasa el máximo de digitos
+                </div>
+                <div *ngIf="f.documentNumber.errors.invalidAlphaNumeric">No se admiten caractéres especiales</div>
+                <div *ngIf="f.documentNumber.errors.minlength">El número de documento es inferior al mínimo de digitos
+                </div>
+                <div *ngIf="f.documentNumber.errors.invalidLength">No corresponde la longitud</div>
+              </div>
+            </div>
+            <!--<div class="app-label labelCase">ID Caso: </div>
+            <div class="boxCase"><input type="text" (keyup)="OnKeyUp('idInternalCase')" class="form-control"
+                formControlName="idInternalCase" />
+              <div *ngIf="internalCaseValues.idInternalCase" class="invalid-feedback">Caracter
+                invalido.</div>
+            </div>-->
+            <div class="app-label labelState">Estado del caso: </div>
+            <div class="boxState">
+              <select class="form-control" formControlName="state">
+                <option *ngFor="let caseState of listCaseStates" [value]="caseState.name">{{caseState.description}}
+                </option>
+              </select>
+            </div>
+            <div class="app-label labelOds">ID Ods: </div>
+            <div class="boxOds"><input type="text" (keyup)="OnKeyUp('idOds')" class="form-control"
+                formControlName="idOds"/>
+              <div *ngIf="internalCaseValues.idOds" class="invalid-feedback">Caracter
+                invalido.</div>
+                <div *ngIf="f.idOds.errors">
+                  <div *ngIf="f.idOds.errors.minlength" class="invalid-feedback">El id de la Ods digitado es inferior al mínimo de
+                    digitos </div>
+                  <div *ngIf="f.idOds.errors.maxlength" class="invalid-feedback">El id de la Ods digitado es superior al mínimo de
+                    digitos</div>
+                </div>
+            </div>
+          </div>
+          <div style="text-align: -webkit-right;">
+            <div *ngIf="emptyValues" class="invalid-feedback">Ingrese por lo menos un valor</div>
+            <br />
+            <button class="RenderButton green" style="width: 15%;" (click)="SubmitGetCase()" [disabled]="disabledQuery">Consultar</button>
+          </div>
+        </form>
+      </ng-container>
+
+      <ng-container *ngIf="guarantee.showCaseTable">
+              <table mat-table [dataSource]="listODS" matSort>
+                <ng-container matColumnDef="documentType" mat-sort-header>
+                  <th mat-header-cell *matHeaderCellDef class="row_docType">Tipo documento</th>
+                  <td mat-cell *matCellDef="let element">{{getTypeDocument(element.client.documentType)}}</td>
+                </ng-container>
+                <ng-container matColumnDef="documentNumber">
+                  <th mat-header-cell *matHeaderCellDef class="row_docNumber">Número de Documento</th>
+                  <td mat-cell *matCellDef="let element">{{element.client.documentNumber }}</td>
+                </ng-container>
+                <ng-container matColumnDef="imei">
+                  <th mat-header-cell *matHeaderCellDef class="row_imei">IMEI</th>
+                  <td mat-cell *matCellDef="let element">{{element.equipment.imei }}</td>
+                </ng-container>
+                <ng-container matColumnDef="serial">
+                  <th mat-header-cell *matHeaderCellDef class="row_serial">Serial</th>
+                  <td mat-cell *matCellDef="let element">{{element.equipment.serial }}</td>
+                </ng-container>
+                <ng-container matColumnDef="odsId" >
+                  <th mat-header-cell *matHeaderCellDef class="row_odsid">ID Ods</th>
+                  <td mat-cell *matCellDef="let element">{{element.idOds }}</td>
+                </ng-container>
+                <!--<ng-container matColumnDef="caseId" >
+                  <th mat-header-cell *matHeaderCellDef class="row_caseid">ID Caso</th>
+                  <td mat-cell *matCellDef="let element">{{element.idInternalcase }}</td>
+                </ng-container>-->
+                <ng-container matColumnDef="fechaRadicacion">
+                  <th mat-header-cell *matHeaderCellDef class="row_dates">Fecha de radicación</th>
+                  <td mat-cell *matCellDef="let element">{{element.entryDate | date: 'dd-MM-yyyy' + ' ' + element.entryHour}}</td>
+                </ng-container>
+                <ng-container matColumnDef="tipoCaso">
+                  <th mat-header-cell *matHeaderCellDef  class="row_typeCase">Tipo de caso</th>
+                  <td mat-cell *matCellDef="let element">{{getCaseTyping(element.typing) }}</td>
+                </ng-container>
+                <ng-container matColumnDef="estado" >
+                  <th mat-header-cell *matHeaderCellDef class="row_caseState">Estado</th>
+                  <td mat-cell *matCellDef="let element">{{getCaseState(element.state)}}</td>
+                </ng-container>
+                <ng-container matColumnDef="modificationStateDate">
+                  <th mat-header-cell *matHeaderCellDef class="row_dates">Fecha de modificación</th>
+                  <td mat-cell *matCellDef="let element">{{element.modificationStateDate | date: 'dd-MM-yyyy'}}</td>
+                </ng-container>
+                <ng-container matColumnDef="fechaRespuesta">
+                  <th mat-header-cell *matHeaderCellDef class="row_dates">Fecha de respuesta</th>
+                  <td mat-cell *matCellDef="let element">{{element.repairDate | date: 'dd-MM-yyyy' }}</td>
+                </ng-container>
+                <ng-container matColumnDef="diasEstadoActual">
+                  <th mat-header-cell *matHeaderCellDef class="row_dates">Días estado actual</th>
+                  <td mat-cell *matCellDef="let element">{{element.daysCurrentState}}</td>
+                </ng-container>
+                <ng-container matColumnDef="tsc">
+                  <th mat-header-cell *matHeaderCellDef class="row_cst">CST</th>
+                  <td mat-cell *matCellDef="let element">{{getTSC(element.tsc) }}</td>
+                </ng-container>
+                <ng-container matColumnDef="detail" class="row_details">
+                  <th mat-header-cell *matHeaderCellDef>Seleccionar</th>
+                  <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button (click)="SelectedCase(element)" [disabled]="disabledQuery" >
+                      <mat-icon>remove_red_eye</mat-icon>
+                    </button>
+                  </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="header-row"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+  <div *ngIf="guarantee.showCaseTable && guarantee.showDocumentalManager">
+    <app-containerdocuments [guarantee]="guarantee" (getGuaranteeWithDocument)="GetGuaranteeDocument($event)"></app-containerdocuments>
+  </div>
+</div>

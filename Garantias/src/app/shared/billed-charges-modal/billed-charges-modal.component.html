@@ -1,0 +1,141 @@
+<div class="expansion-panel-body">
+
+    <div style="position: relative;">
+      <div class="divBtnRound">
+        <button class="btnCerrarPopUp" [mat-dialog-close]> Cerrar</button>
+      </div>
+    </div>
+
+    <br /><br />
+
+    <div class="cont-ajustes">
+
+        <div class="col-ajustes-1">
+            <label for="">¿El cobro esta pendiente por facturar?</label>
+        </div>
+        <div class="col-ajustes-2 to-right pos-left">
+            <input type="radio" [checked]="pendingInvoiceYes" [disabled]="true"> Si
+            <input type="radio" [checked]="pendingInvoiceNot" [disabled]="true"> No
+        </div>
+
+        <br /><br /> 
+
+        <div *ngIf="pendingInvoiceNot" class="separ-adjust">
+            <div class="cols-ajust-foot">
+                <label for="">Tipo Ajuste</label>
+                <select [(ngModel)]="typeRemark">
+                    <option [value]="item" *ngFor="let item of typeAdjustmentSelect">{{item}}</option>
+                </select>
+            </div>
+            <div class="cols-ajust-foot">
+                <label for="valueAdjust">Valor</label>
+                <input [(ngModel)]="valueAdjust" type="number">
+            </div>
+            <div class="col-ajustes-2 to-right">
+                <button class="RenderButton green ajust-btn" (click)="SetChargesNotificationAdjust(1)">Solicitar Ajuste</button>
+            </div>
+        </div>
+
+        <div *ngIf="pendingInvoiceYes" class="separ-adjust">
+            <div class="col-ajustes-1">
+                <label for="">Proceda con la aliminación de la OCC</label>
+            </div>
+            <div class="col-ajustes-2 to-right">
+                <button class="RenderButton green ajust-btn" (click)="delOccBtn()">
+                    Eliminar OCC
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="anularView" class="separ-adjust">
+            <div class="col-ajustes-1">
+                <label for="">
+                    {{occDeleted}}
+                </label>
+            </div>
+            <div class="col-ajustes-2 to-right">
+                <button class="RenderButton green ajust-btn" (click)="requestDelCreditBtn()">
+                    Solicitar anular crédito
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="checkPaymentsView" class="separ-adjust">
+            <div class="col-ajustes-1">
+                <label for="">
+                    {{creditCancellation}}
+                </label>
+            </div>
+            <div class="col-ajustes-2 to-right">
+                <button class="RenderButton green ajust-btn" (click)="checkPaysBtn()">
+                    Consultar Pagos
+                </button>
+            </div>
+        </div>
+
+        <div class="separ-adjust">
+            <table class="table-ajustes">
+                <tr>
+                    <th>Fecha pago</th>
+                    <th>Valor</th>
+                    <th>Concepto</th>
+                    <th>Cuenta equipos</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="separ-adjust">
+            <div class="col-ajustes-1">
+                <div>
+                    Proceda con la solicitud de ajustes a la cuenta de facturación de equipos
+                </div>
+            </div>
+        </div>
+
+        <div class="separ-adjust">
+            <div class="cols-ajust-foot">
+                <label for="">Tipo Ajuste</label>
+                <select [(ngModel)]="typeRemark2">
+                    <option [value]="item" *ngFor="let item of typeAdjustmentSelect">{{item}}</option>
+                </select>
+            </div>
+            <div class="cols-ajust-foot">
+                <label for="">Valor</label>
+                <input [(ngModel)]="valueAdjust2" type="number">
+            </div>
+            <div class="col-ajustes-2 to-right">
+                <button class="RenderButton green ajust-btn" [disabled]="adjustFinalBtn" (click)="SetChargesNotificationAdjust(2)">
+                    Solicitar Ajuste
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="adjustFinalView" class="separ-adjust">
+            <div class="col-ajustes-1">
+                <div>
+                    {{AdjustmentSuccessful}}.
+                </div>
+            </div>
+        </div>
+        
+        <div *ngIf="adjustFinalView" class="separ-adjust">
+            <div class="col-ajustes-1">
+                <label for="">
+                    Por favor seleccionar el botón continuar para seguir con el proceso
+                </label>
+            </div>
+            <div class="col-ajustes-2 to-right">
+                <button class="RenderButton green ajust-btn">Continuar</button>
+            </div>
+        </div>
+  
+    </div>
+  
+  </div>
+  

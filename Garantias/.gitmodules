@@ -1,0 +1,4 @@
+[submodule "externals"]
+	path = externals
+	url = https://alminspiraclaro.visualstudio.com/ModuloVentasB2C/_git/LibreriasModulosInspira
+	branch = Desarrollo

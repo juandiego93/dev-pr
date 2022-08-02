@@ -1,0 +1,547 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button {
+  text-transform: uppercase;
+  font-weight: 700 !important;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0 .5em !important;
+}
+
+.mat-button {
+  height: 20px;
+  color: #fff !important;
+  // background-color: #616161 !important;
+  border-radius: 2px !important;
+  min-width: 215.5px !important;
+  line-height: 0px !important;
+}
+
+.green {
+  background-color: #008000 !important;
+}
+
+.red {
+  background-color: #da291c !important;
+}
+
+.gray {
+  background-color: #757575 !important;
+}
+
+.container {
+  margin: 25px 20px;
+}
+
+.mat-toolbar-multiple-rows {
+  background-color: white;
+}
+
+.app-label {
+  font-size: 12px;
+  width: 100%;
+  color:black;
+  font-weight: bold;
+}
+
+.app-label-titulo {
+  font-size: 0.8em;
+  width: 100%;
+  color: black;
+  padding:2em;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 0px 0px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mat-card{
+  margin-top: 10px;
+}
+
+.app-linea-roja {
+  width: 30%;
+  border-top: 5px solid #da291c;
+  color: #da291c;
+  border-radius: 10%;
+  margin: 2px 0px 10px;
+}
+
+.app-font-title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 1px #00000094;
+}
+
+.divBtnRound{
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  padding: 0%;
+  margin: 0%;
+}
+
+.divBtnRound_1 {
+  position: absolute;
+  right: -5px;
+  top: 2px;
+  padding: 0%;
+  margin: 0%;
+}
+
+
+.btnClaroRound {
+  background: #da291c;
+  color: rgb(255,255,255);
+  height: 20px;
+  min-width: 20px;
+  width: 20px;
+  font-size: 12px;
+}
+
+.cdk-overlay-pane{
+  position: relative !important;
+}
+
+.mat-mini-fab .mat-button-wrapper {
+  padding: 0 !important;
+}
+
+.invalid-feedback {
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 11px;
+  color: #dc3545;
+}
+
+.RenderButton{
+  white-space: normal;
+  border: none;
+  border-radius: 16px;
+  position: relative;
+  margin: 0;
+  min-width: 64px;
+  padding: 0 2px;
+  display: inline-block;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-size: 12px;
+  letter-spacing: 0;
+  overflow: hidden;
+  will-change: box-shadow;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  min-height: 22px !important;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+}
+.RenderButton[disabled]{
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  min-height: 22px !important;
+  padding: 0 !important;
+  font-size:12px !important;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid, .invalid-form {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + .75rem);
+  background-repeat: no-repeat;
+  background-position: right calc(.375em + .1875rem) center;
+  background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+.form-control[disabled] {
+  background-color: lightgrey;
+}
+
+.form-control-detail[disabled] {
+  border:none;
+  background-color: white !important;
+}
+
+#modalAlerta{
+  padding: 5px !important;
+  background-color: green;
+  color: white;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+#modalAlertaFail{
+  padding: 5px !important;
+  background-color: #da291c;
+  color: white;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.mdl-dialog {
+  width: fit-content !important;
+  min-width: 60% !important;
+}
+
+.btn-cerrar{
+  cursor: pointer;
+}
+
+div a.btn-cerrar {
+  text-decoration: underline;
+  float: right;
+  cursor: pointer;
+  color: black;
+}
+
+.linkbutton  {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  color: #05AFA7;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.linkbutton :focus  {
+  outline: none;
+}
+
+.buttonDetail {
+  bottom: 28px;
+  right: 30px;
+  position: absolute;
+  padding: 0%;
+  margin: 0%;
+  cursor: pointer;
+  min-width: 110px;
+}
+
+
+.btnCerrarPopUp{
+  border: none !important;
+  outline:0 !important;
+  font-size: small;
+  color: gray;
+  background: white;
+  cursor: pointer;
+  text-transform: none;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: normal !important;
+  }
+
+  .expansion-panel-body {
+    padding: 10px;
+    margin: 0px 0px 15px 0px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    background: white;
+    min-height: 91.5%;
+  }
+
+  .checkbox input[type="checkbox"] {
+    width: auto;
+    opacity: 0.00000001;
+    position: absolute;
+    left: 0;
+    margin-left: -20px;
+  }
+
+  .checkbox label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -5px;
+    margin: 4px;
+    width: 22px;
+    height: 22px;
+    transition: transform 0.28s ease;
+    border-radius: 3px;
+    border: 2px solid #05AFA7;
+  }
+
+  .checkbox label:after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 5px;
+    border-bottom: 2px solid #05AFA7;
+    border-left: 2px solid #05AFA7;
+    -webkit-transform: rotate(-45deg) scale(0);
+    transform: rotate(-45deg) scale(0);
+    transition: transform ease 0.25s;
+    will-change: transform;
+    position: absolute;
+    top: 7px;
+    left: 10px;
+  }
+
+  .checkbox input[type="checkbox"]:checked ~ label::before {
+    color: #05AFA7;
+  }
+
+  .checkbox input[type="checkbox"]:checked ~ label::after {
+    -webkit-transform: rotate(-45deg) scale(1);
+    transform: rotate(-45deg) scale(1);
+  }
+
+  .checkbox label {
+    display: block;
+    padding-left: 40px;
+    margin-bottom: 0;
+    cursor: pointer;
+    vertical-align: sub;
+    position: relative;
+  }
+
+  .checkbox label span {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .checkbox input[type="checkbox"]:focus + label::before {
+    outline: 0;
+  }
+
+  .mat-dialog-container {
+    padding-top: 3%;
+    border-radius: 0 !important;
+  }
+
+  select[disabled] {
+    opacity: 100;
+    -webkit-appearance: none;
+}
+
+.labelFloat{
+  float: left;
+  color: #495057;
+  font-size: 12px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin-top: 3px;
+}
+
+.spanFloat {
+  display: block;
+  overflow: hidden;
+  padding: 0px 4px 0px 6px;
+}
+
+/* Hide arrows*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+  .btnAlerta{
+    float: right;
+    border: none;
+    color: white;
+    background-color:transparent;
+    cursor: pointer;
+  }
+
+  .btnAlerta:focus {outline:0;}
+
+  [id*="success-alert"] {
+    padding: 5px !important;
+    background-color: green;
+    color: white;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  [id*="fail-alert"] {
+    padding: 5px !important;
+    background-color: #da291c;
+    color: white;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: lightcoral;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color:#da291c;
+}
+
+.divBtnCancelar {
+    bottom: 23px;
+    right: 40px;
+    position: absolute;
+    padding: 0%;
+    margin: 0%;
+    cursor: pointer;
+    min-width: 110px;
+  }
+
+  .btn-cancelar{
+    vertical-align: sub;
+    font-weight: 700 !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+
+  iframe{
+    border: none;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .gray-line {
+    border-top: 2px solid lightgray;
+    margin: 5px 20px 5px 20px;
+  }
+
+
+
+.check-question-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 2px 10px;
+  grid-template-areas: "questionCheck check-grid-container . .";
+}
+
+.questionCheck {
+  grid-area: questionCheck;
+}
+
+.check-grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;
+  grid-template-areas: "lblYes checkYes lblNo checkNo";
+  grid-area: check-grid-container;
+}
+
+.lblYes {
+  grid-area: lblYes;
+}
+
+.checkYes {
+  grid-area: checkYes;
+}
+
+.lblNo {
+  grid-area: lblNo;
+}
+
+.checkNo {
+  grid-area: checkNo;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+.autocomplete-container {
+  height: 22px !important;
+}
+
+.autocomplete-container .input-container input {
+   height: 22px !important;
+   font-size: 12px !important;
+}
+
+.autocomplete-container .suggestions-container ul li a {
+  padding: 0px 10px !important;
+  font-size: 12px !important;
+ }

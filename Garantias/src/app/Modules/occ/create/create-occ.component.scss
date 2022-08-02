@@ -1,0 +1,41 @@
+.grid-create-occ-container{
+  display: grid;
+  grid-template-columns: repeat(2, 100px) repeat(2, 140px);
+  grid-template-rows: 3px repeat(3, 30px) 40px;
+  gap: 5px;
+  grid-template-areas:
+    ". . . ."
+    "label1 label1 box1 box1"
+    "label2 label2 box2 box2"
+    "label3 label3 box3 box3"
+    "buttons buttons buttons buttons"
+}
+
+.label1 { grid-area: label1; font-weight: 700; padding: 5px;}
+.label2 { grid-area: label2; font-weight: 700; padding: 5px;}
+.label3 { grid-area: label3; font-weight: 700; padding: 5px;}
+
+.box1 { grid-area: box1; padding: 5px;}
+.box2 { grid-area: box2; padding: 5px;}
+.box3 { grid-area: box3; padding: 5px;}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  grid-area: buttons;
+  width: 100%;
+  div {
+    padding-bottom:5px;
+    padding-top:5px;
+    margin-right: 10px;
+    button {
+      width: 120px;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.modalBorder {
+  border: rgba(130, 130, 130, 0.7) 1px solid
+}

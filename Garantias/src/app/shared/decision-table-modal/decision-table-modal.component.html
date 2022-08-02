@@ -1,0 +1,13 @@
+<div class="contQuestion">
+  <div *ngIf="show" style="width:25em;height:100%;">
+    <div class="center" style="text-align: center;">
+      {{ruleDescription}}
+    </div>
+    <div class="row">
+      <div class="block" *ngFor="let item of listrulesFilter[0].ruleValues">
+        <button class="RenderButton" [ngStyle]="{'background-color': item.color}"
+          [disabled]="false" (click)="SelectButton(item)">{{item.value}}</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+.fileUploadContainer {
+  padding-right: 1em;
+  padding-left: 1em;
+  margin: 1em !important;
+}
+.expansion-panel-body {
+  padding: 7px 5px 5px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.12),
+    0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  background: white;
+  margin-top: 1em;
+}
+.consulta-titulo-Seccion1 {
+  grid-area: consulta-titulo-Seccion1;
+  padding-left: 0;
+}
+.containerDocument {
+  padding: 1%;
+}
+.chooseFile {
+  color: #fff;
+  font-size: 10px;
+  background-color: #757575;
+  height: 22px;
+  width: 32%;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-right: 2%;
+  border: none;
+}
+.rcorners4 {
+  border-radius: 4px;
+  background: #fff;
+  padding: 3px;
+  width: 35%;
+  height: 10%;
+  border: 1px solid;
+  display: inline-block;
+  margin-right: 2%;
+}
+
+.lblName {
+  margin-right: 2%;
+  width: 40%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-inline: 1.5%;
+  /* overflow: hidden; */
+}
+
+.fueraInput {
+  width: 75%;
+}
+
+.fueraBoton {
+  width: 20% !important;
+}
+
+.fileUploadContainerFuera {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin: 0px !important;
+}
+
+.expansionBodyFuera {
+  margin: 0px !important;
+}
+.lblFileName{
+  width: 65%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 0em;
+}

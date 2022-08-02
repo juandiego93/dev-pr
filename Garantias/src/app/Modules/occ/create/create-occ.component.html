@@ -1,0 +1,44 @@
+<div class="expansion-panel-body">
+  <div style="position: relative;">
+    <div class="divBtnRound">
+      <button class="btnCerrarPopUp" [mat-dialog-close]> Cerrar</button>
+    </div>
+  </div>
+  <div class="app-font-title text-shadow">Crear OCC</div>
+  <hr class="app-linea-roja" style="width: 270px;">
+  <div class="grid-create-occ-container">
+    <div class="app-label label1">Número de cuenta: </div>
+    <div class="box1"><input type="number" [(ngModel)]="guarantee.account" class="form-control" disabled/></div>
+    <div class="app-label label2">Valor de equipo a cobrar: </div>
+    <div class="box2"><input type="text" [value]="guarantee.totalcostLoanEquipment | currency" class="form-control" disabled/></div>
+    <div class="app-label label3">Tipo de ajuste: <span style="color: red;">* </span></div>
+    <div class="box3">
+      <ng-autocomplete [data]="typeAdjustment"
+                       searchKeyword="remark"
+                       placeHolder="Escriba el tipo de ajuste"
+                       [itemTemplate]="itemTemplate"
+                       [notFoundTemplate]="notFoundTemplate"
+                       [initialValue]="guarantee.adjustment"
+                       [(ngModel)]="guarantee.adjustment">
+      </ng-autocomplete>
+      <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.remark"></a>
+      </ng-template>
+      <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+      </ng-template>
+    </div>
+
+    <br /><br />
+
+    <div class="button">
+      <div>
+        <div *ngIf="emptyValues" class="invalid-feedback">Ingrese todos los campos</div>
+        <button class="RenderButton green" (click)="SubmitCreateOCC()">Crear</button>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

@@ -1,0 +1,84 @@
+<div class="expansion-panel-body modalBorder">
+  <div style="position: relative;">
+  </div>
+  <div class="app-font-title text-shadow">{{titleModal}}</div>
+  <hr class="app-linea-roja" style="width: 89%;" >
+
+  <form [formGroup]="invoiceForm" id="invoiceForm">
+    <div class="grid-detail-container">
+
+      <div class="app-label label1">Tipo de documento: </div>
+      <div class="box1">
+        <select name="miselect" class="form-control form-control-detail" formControlName="documentType">
+          <!-- <option [value]="item.id" *ngFor="let item of data.listCaseStates">{{item.description}}</option> -->
+          <option *ngFor="let type of this.data.documentTypes" [value]="type.Code">{{type.Description}}</option>
+        </select>
+        <!-- <div *ngIf="internalCaseValues.state" class="invalid-feedback">Valor requerido.</div> -->
+      </div>
+
+      <div class="app-label label2">No. de documento: </div>
+      <div class="box2">
+        <input type="number"
+               class="form-control form-control-detail"
+               formControlName="documentNumber"
+        />
+      </div>
+
+      <div class="app-label label3">Nombres: </div>
+      <div class="box3">
+        <input type="text"
+               class="form-control form-control-detail"
+               formControlName="name"
+        />
+      </div>
+
+      <div class="app-label label4">Apellidos: </div>
+      <div class="box4">
+        <input type="text"
+               class="form-control form-control-detail"
+               formControlName="lastName"
+        />
+      </div>
+
+      <div class="app-label label5">Concepto: </div>
+      <div class="box5">
+        <input type="text"
+               class="form-control form-control-detail"
+               formControlName="subject"
+        />
+      </div>
+
+      <div class="app-label label6">Nombre CAV: </div>
+      <div class="box6">
+        <input type="text"
+               class="form-control form-control-detail"
+               formControlName="cavName"
+        />
+      </div>
+
+      <div class="app-label label7">Ciudad CAV: </div>
+      <div class="box7">
+        <input type="text"
+               class="form-control form-control-detail"
+               formControlName="cavCity"
+        />
+      </div>
+
+      <div class="app-label label8">Valor a Pagar: </div>
+      <div class="box8">
+        <input type="text"
+               class="form-control form-control-detail"
+               formControlName="totalToPay"
+        />
+      </div>
+
+      </div>
+      <div class="buttons">
+        <div>
+          <button class="RenderButton green" (click)="sendInvoice()" style="text-transform: capitalize;">Generar Factura</button>
+        </div>
+      </div>
+
+  </form>
+
+

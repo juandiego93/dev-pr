@@ -1,0 +1,52 @@
+th.mat-header-cell, td.mat-cell {
+  text-align: center;
+  border: 1px solid #CCC;
+  padding: 2px 0px !important;
+}
+
+
+.mat-header-cell, .mat-footer-cell, .mat-cell {
+  box-sizing: border-box;
+}
+
+.example-sticky-toggle-group {
+  margin: 8px;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.header-row {
+  background-color: #da291c;
+}
+
+.mat-header-cell {
+  color: white;
+}
+
+
+table.mat-table {
+  border-spacing: 0;
+  padding: 1%;
+  width:100%
+}
+
+.mat-footer-row,
+.mat-header-row,
+.mat-row {
+  height: auto;
+}
+
+button {
+margin: 0 !important;
+}
+
+.mat-icon-button {
+  width: fit-content;
+  height: fit-content;
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+ line-height: 0px;
+}

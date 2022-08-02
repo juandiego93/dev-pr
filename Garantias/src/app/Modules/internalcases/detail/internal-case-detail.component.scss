@@ -1,0 +1,59 @@
+.grid-detail-container {
+  display: grid;
+  grid-template-columns: repeat(2, 100px) repeat(2, 170px);
+  grid-template-rows: auto;
+  gap: 5px;
+  grid-template-areas:
+    ". . . ."
+    "labelIdCase labelIdCase boxIdCase boxIdCase"
+    "labelDate labelDate boxDate boxDate"
+    "labelState labelState boxState boxState"
+    "labelPaymentDone labelPaymentDone boxPaymentDone boxPaymentDone"
+    "labelStock labelStock boxStock boxStock"
+    "labelPriority labelPriority boxPriority boxPriority"
+    "labelMemorandum labelMemorandum boxMemorandum boxMemorandum"
+    "labelReceiveReturnedProduct labelReceiveReturnedProduct boxReceiveReturnedProduct boxReceiveReturnedProduct"
+    "labelObservations labelObservations boxObservations boxObservations"
+    "buttons buttons buttons buttons"
+}
+
+.labelIdCase { grid-area: labelIdCase; font-weight: 700;  padding: 5px;}
+.labelDate { grid-area: labelDate; font-weight: 700; padding: 5px;}
+.labelState { grid-area: labelState; font-weight: 700; padding: 5px;}
+.labelObservations { grid-area: labelObservations; font-weight: 700; padding: 5px;}
+.labelPaymentDone { grid-area: labelPaymentDone; font-weight: 700; padding: 5px;}
+.labelPriority { grid-area: labelPriority; font-weight: 700; padding: 5px;}
+.labelStock { grid-area: labelStock; font-weight: 700; padding: 5px;}
+.labelMemorandum { grid-area: labelMemorandum; font-weight: 700; padding: 5px;}
+.labelReceiveReturnedProduct { grid-area: labelReceiveReturnedProduct; font-weight: 700; padding: 5px;}
+
+.boxIdCase { grid-area: boxIdCase; padding: 5px;}
+.boxDate { grid-area: boxDate; padding: 5px;}
+.boxState { grid-area: boxState; padding: 5px;}
+.boxObservations { grid-area: boxObservations; padding: 5px;}
+.boxPaymentDone { grid-area: boxPaymentDone; padding: 5px;}
+.boxPriority { grid-area: boxPriority; padding: 5px;}
+.boxStock { grid-area: boxStock; padding: 5px;}
+.boxMemorandum { grid-area: boxMemorandum; padding: 5px;}
+.boxReceiveReturnedProduct { grid-area: boxReceiveReturnedProduct; padding: 5px;}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  grid-area: buttons;
+  width: 100%;
+  height: 30px;
+  div {
+    padding-bottom:5px;
+    padding-top:5px;
+    margin-right: 10px;
+    button {
+      width: 200px;
+    }
+  }
+}
+
+.modalBorder {
+  border: rgba(130, 130, 130, 0.7) 1px solid
+}

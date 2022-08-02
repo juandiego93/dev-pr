@@ -1,0 +1,82 @@
+<div class="expansion-panel-body">
+  <div style="position: relative;">
+    <div class="divBtnRound">
+      <button class="btnCerrarPopUp" [mat-dialog-close]>
+        Cerrar
+      </button>
+    </div>
+  </div>
+  <div class="app-font-title text-shadow">Detalles del inventario</div>
+  <hr class="app-linea-roja" style="width: 185px;">
+  <div class="grid-detail-container">
+    <div class="app-label label1">IMEI / Serial</div>
+    <div class="box1">
+      <input type="number" [(ngModel)]="device.serial" class="form-control form-control-detail"
+             [disabled]="true" />
+    </div>
+    <div class="app-label label2">Referencia: </div>
+    <div class="box2">
+      <input type="text" [(ngModel)]="device.reference" class="form-control form-control-detail"
+             [ngClass]="{'invalid-form': device.reference}"
+             (keyup)="OnKeyUp(device.reference, 'reference')" [disabled]="true" />
+      <div *ngIf="deviceValues.reference && device.reference !== ''" class="invalid-feedback">
+        Caracter invalido.
+      </div>
+      <div *ngIf="deviceValues.reference && device.reference == ''" class="invalid-feedback">
+        Valor
+        requerido.
+      </div>
+    </div>
+    <div class="app-label label3">Marca: </div>
+    <div class="box3">
+      <select [(ngModel)]="device.brand" class="form-control form-control-detail"
+              [ngClass]="{'invalid-form': deviceValues.brand && device.brand == ''}"
+              [disabled]="true">
+        <option [value]="item" *ngFor="let item of brands">{{item}}</option>
+      </select>
+      <div *ngIf="deviceValues.brand && device.brand == ''" class="invalid-feedback">Valor requerido.</div>
+    </div>
+
+    <div class="app-label label4">Modelo: </div>
+    <div class="box4">
+      <select [(ngModel)]="device.model" class="form-control form-control-detail"
+              [ngClass]="{'invalid-form': deviceValues.model && device.model == ''}"
+              [disabled]="true">
+        <option [value]="item" *ngFor="let item of models">{{item}}</option>
+      </select>
+      <div *ngIf="deviceValues.model && device.model == ''" class="invalid-feedback">Valor requerido.</div>
+    </div>
+    <div class="app-label label5">Estado: </div>
+    <div class="box5">
+      <select [(ngModel)]="device.state" class="form-control form-control-detail"
+              [ngClass]="{'invalid-form': deviceValues.state && device.state == ''}"
+              [disabled]="device.disableInventory">
+        <option [value]="item" *ngFor="let item of stateDevice">{{item}}</option>
+      </select>
+      <div *ngIf="deviceValues.state && device.state == ''" class="invalid-feedback">Valor requerido.</div>
+    </div>
+    <div class="app-label label6">Reservar: </div>
+    <div class="box6">
+      <mat-slide-toggle [(ngModel)]="device.reserve" [disabled]="device.disableInventory"></mat-slide-toggle>
+      <div *ngIf="deviceValues.reserve" class="invalid-feedback">Valor requerido.</div>
+    </div>
+
+    <div class="btnUpdate">
+      <div style="padding-bottom:10px">
+        <button class="RenderButton green" (click)="onReserve()">Reservar</button>
+      </div>
+      <div>
+        <button class="RenderButton red" (click)="onCancel()">Cancelar</button>
+      </div>
+    </div>
+
+      <!--<div class="btnUpdate" *ngIf="device.disableInventory">
+    <button class="RenderButton green" (click)="device.disableInventory = false">Habilitar</button>
+  </div>
+  <div class="btnUpdate" *ngIf="!device.disableInventory">
+    <button class="RenderButton red" (click)="SubmitInternalCase()">Modificar</button>
+  </div>-->
+
+
+    </div>
+</div>
