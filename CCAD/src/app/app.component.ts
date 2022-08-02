@@ -40,13 +40,13 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   getServices() {
-    debugger
+    
     this.requestParameter.name = 'URLServicios';
     this.dataParametroService.postParameter(this.requestParameter)
       .subscribe(
         dataResponseParametroServidores => {
           this.sg['Servicios'] = JSON.parse(dataResponseParametroServidores.VALUE_PARAMETER);
-          this.certCuentaService.GetUrlPostSaleInsp(912); //Obtener reglas para el flujo
+          this.cecdrtCuentaService.GetUrlPostSaleInsp(912); //Obtener reglas para el flujo
           this.getParamTextosAplicacion();
           this.requestParameter.name = 'Servidores';
           this.dataParametroService.postParameter(this.requestParameter)
