@@ -1,0 +1,42 @@
+<div class="content-scroll">
+    <div>
+        <a [mat-dialog-close] class="btn-cerrar-email">Cerrar</a>
+    </div>
+    <div class="titulo-Email">
+        <span>Envío a correo electrónico</span>
+        <hr class="hr-red-line" />
+    </div>
+
+    <br />
+
+    <div mat-dialog-content>
+        <p>Ingrese el correo electrónico al cual será enviado el documento adjunto de <i>Certificado de cuenta al día.</i></p>
+        <br>
+        <div class="row">
+            <div class="col-12 formulario">
+                <mat-label style="padding-right: 50px;"><strong>Documento a enviar</strong></mat-label>
+                <input class="input-caja" readonly=true *ngIf="!generated" matInput type="text" [value]="textDownload">
+                <input class="input-caja" readonly=true *ngIf="generated" matInput type="text" [value]="textDownload" download="Certificado cuenta.pdf">
+            </div>
+            <div class="col-12 formulario">
+                <mat-label><strong>Correo electrónico</strong><span style="color: red; padding-right: 54px;">*</span></mat-label>
+                <input class="input-caja" [readonly]="loading" id="email-field" (keyup)="validateEmailField()" matInput [(ngModel)]="email" name="email" type="email" placeholder="ejemplo@correo.com">
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="padding-top: 5px;">
+        <div class="col-6">
+            <span class="error-text">{{ errorText }}</span>
+        </div>
+        <div class="col-6" style="text-align: right; padding-right: 25px;">
+            <button [disabled]="loading" [ngClass]="{disabled: loading}" (click)="onSendEmail()" mat-button style="border-radius: 20px;">
+                    <!-- <mat-progress-spinner *ngIf="loading" diameter="20" color="warn" mode="indeterminate"></mat-progress-spinner> -->
+                    <span class="material-icons">mail_outline</span>&nbsp;{{ buttonText }}
+            </button>
+        </div>
+    </div>
+
+    <!-- Etiqueta que hace llamado a componente de Documentos dinámicos. -->
+    <iframe [src]="data | domSanitizer" style="display: none;"></iframe>
+</div>

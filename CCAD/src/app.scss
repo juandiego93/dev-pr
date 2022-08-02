@@ -1,0 +1,329 @@
+.app-label {
+  font-size: 0.8em;
+  width: 100%;
+  color:black;
+}
+
+.app-label-titulo {
+  font-size: 0.8em;
+  width: 100%;
+  color: black;
+  padding:2em;
+}
+
+.app-separador {
+  width: 100%;
+  border-bottom: solid;
+  border-bottom-color: black;
+  margin-top: 0.5em;
+  margin-bottom: 2em;
+  border-width: 0.1em;
+}
+
+.form-control {
+  height: 1.5em !important;
+  padding: 0 !important;
+  font-size:0.8em !important;
+}
+
+.app-boton-grey {
+  color: #fff;
+  background-color: #757575;
+  width: 100%;
+  font-size: 12px;
+  padding-left: 1em;
+}
+
+.app-boton-grey:hover {
+  background-color:darkgray;
+  color: white;
+}
+
+.app-boton-green {
+  color: #fff;
+  background-color: green;
+  width: 100%;
+  font-size: 12px;
+  padding-left:1em;
+}
+
+.app-boton-green:hover {
+  background-color:darkseagreen;
+  color: white;
+}
+
+.app-boton-red {
+  color: #fff;
+  background-color: #F53402;
+  width: 100%;
+  font-size: 12px;
+  padding-left: 1em;
+}
+
+.app-boton-red:hover {
+  background-color: #FE642E;
+  color: white;
+}
+
+.app-boton1 {
+  color: #fff;
+  background-color: #00DE00;
+  border-color: #00DE00;
+  width: 100%;
+  border-radius: 0.5em;
+  align-self: self-start;
+}
+
+.app-boton2 {
+  color: #fff;
+  background-color: #F53402;
+  border-color: #F53402;
+  width: 49%;
+  border-radius: 0.5em;
+  align-self: self-start;
+}
+
+.app-boton-right {
+  position: absolute;
+  right: 0;
+}
+
+.app-left-image {
+  transform: scale(0.3);
+}
+
+.border {
+  border: 2px blue dashed;
+}
+
+.app-button {
+  background-color: #01AAAD;
+  width: 150px;
+  margin: 0 20px;
+  display: inline-block;
+  line-height: 60px;
+}
+
+.app-linea-roja {
+  width: 30%;
+  border-top: 5px solid #da291c;
+  color: #da291c;
+  border-radius: 10%;
+  margin: 2px 0px 10px;
+}
+
+.app-linea-roja60 {
+  width: 60%;
+  border-top: 5px solid #da291c;
+  color: #da291c;
+  border-radius: 10%;
+  margin: 2px 0px 10px;
+}
+
+.app-font-title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.app-font-subtitle {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+
+.mdl-button--fab.mdl-button--colored:focus:not(:active) {
+  background-color: #F44336;
+}
+
+.mdl-button--fab.mdl-button--colored:hover {
+  background-color: #F44336;
+}
+
+.btn-back-gray {
+  background-color: #616161 !important;
+}
+
+.text-responsive {
+  font-size: 14px;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 1px #00000094;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.mdl-color-text--white {
+  color: #fff !important;
+}
+
+.divBtnRound {
+  position: absolute;
+  right: -40px;
+  top: -50px;
+  padding: 0%;
+  margin: 0%;
+}
+
+.spanX
+{
+  width: 20px;
+  height: 20px;
+}
+
+.btnClaroRound {
+  background: rgb(244,67,54);
+  color: rgb(255,255,255);
+  height: 20px;
+  min-width: 20px;
+  width: 20px;
+  font-size: 12px;
+}
+
+
+dialog {
+  background-color: white;
+  color: var(--text-color);
+  text-align: left;
+  border: none;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.25);
+  max-width: 90vw;
+}
+
+  dialog[open] {
+    animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
+  }
+
+  dialog::backdrop {
+    background: linear-gradient(45deg, rgba(0,143,104,.5));
+  }
+
+  dialog .actions {
+    display: flex;
+    justify-content: space-around;
+  }
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateX(-3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.expansion-panel-body {
+  padding: 7px 5px 5px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  background: white;
+  margin-top: 1em;
+}
+
+
+.consulta-form-control {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: 1.5em !important;
+  padding: 0 !important;
+  font-size: 0.8em !important;
+}
+
+  .consulta-form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' hei…circle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e);
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+  }
+
+  .consulta-form-control[disabled] {
+    background-color: lightgrey;
+  }
+
+.express-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "express-LblCategoria express-ListaCategoria" "express-LblSubCategoria express-ListaSubCategoria" "express-LblVozCliente express-ListaVozCliente" "express-LblCodigoCierre express-ListaCodigoCierre" "express-LblComentarios express-InpComentario";
+}
+
+.express-LblCategoria {
+  grid-area: express-LblCategoria;
+}
+
+.express-ListaCategoria {
+  grid-area: express-ListaCategoria;
+}
+
+.express-LblSubCategoria {
+  grid-area: express-LblSubCategoria;
+}
+
+.express-ListaSubCategoria {
+  grid-area: express-ListaSubCategoria;
+}
+
+.express-LblVozCliente {
+  grid-area: express-LblVozCliente;
+}
+
+.express-ListaVozCliente {
+  grid-area: express-ListaVozCliente;
+}
+
+.express-LblCodigoCierre {
+  grid-area: express-LblCodigoCierre;
+}
+
+.express-ListaCodigoCierre {
+  grid-area: express-ListaCodigoCierre;
+}
+
+
+.express-LblComentarios {
+  grid-area: express-LblComentarios;
+}
+.express-InpComentario {
+  grid-area: express-InpComentario;
+}
+
+
+
+.mdl-dialog {
+  width: fit-content !important;
+  min-width: 30% !important;
+}
+
+.app-expansion-panel-body {
+  padding: 7px 5px 5px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  background: white;
+  margin-top: 1em;
+}
+
+.mdl-button--raised.mdl-button--colored {
+  background: rgb(244,67,54);
+}

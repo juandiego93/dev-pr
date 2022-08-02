@@ -1,0 +1,143 @@
+<div class="certificado-botones-grid-container">
+    <div class="titulo-CAD">
+        <span id="title-cert-cad">Certificación cuenta al día</span>
+        <hr class="hr-red-line" />
+    </div>
+    <div class="certificado-botones-FinalizarAtencion" style="padding-right: 10%;" *ngIf="showEnd && (this.certificationData.ExternalURLReturn == undefined || this.certificationData.ExternalURLReturn == null || this.certificationData.ExternalURLReturn == '')">
+        <input (click)="OpenEndAttentionModal()" readonly value="Finalizar atención" style="height: 20px;line-height: 20px;width:140px" class="no-margin mdl-button mdl-js-button mdl-button--raised font-bold mdl-js-ripple-effect mdl-button--colored mdl-color-text--white w100 text-shadow text-responsive btn-back-gray">
+    </div>
+    <div class="certificado-botones-Regresar" style="padding-right: 10%;" *ngIf="this.certificationData.ExternalURLReturn != undefined && this.certificationData.ExternalURLReturn != null && this.certificationData.ExternalURLReturn != ''">
+        <input (click)="ExternalURLReturn()" readonly value="Regresar" style="height: 20px;line-height: 20px;width:140px" class="no-margin mdl-button mdl-js-button mdl-button--raised font-bold mdl-js-ripple-effect mdl-button--colored mdl-color-text--white w100 text-shadow text-responsive btn-back-gray">
+    </div>
+</div>
+
+<!-- CERTIFICACION DE CUENTA AL DIA PARA INSPIRA-->
+
+<div class="container" *ngIf="this.certificationData.source == 'INS'">
+    <mat-card>
+        <div class="validar-titulo-grid-container">
+            <div class="validar-titulo-Seccion1">
+                <img src="assets/img/report.png" width="20" height="20" align="left">
+                <div class="app-label">Certificaciones</div>
+            </div>
+        </div>
+        <mat-card-content>
+            <div class="center">
+                <mat-card class="cert-cuenta-card">
+                    <div style="display:flex; flex-direction: row;">
+                        <mat-card class="card-certificacion" (click)="isPerson()==true?validarCertificacionSubscripcion(false):alertOnlyPerson()">
+                            <mat-card-content>
+                                <img src="assets/img/Iconi.svg" width="70" align="center">
+                                <br><br>
+                                <span class="new-line">Certificación Cuenta al Día</span>
+                                <span class="new-line">Por Suscripción</span>
+                            </mat-card-content>
+                        </mat-card>
+                        <mat-card class="card-certificacion" (click)="isPerson()==true?validarEquipmentsTerminalsCertification(false):alertOnlyPerson()">
+                            <mat-card-content>
+                                <img src="assets/img/Iconi.svg" width="70" align="center">
+                                <br><br>
+                                <span class="new-line">Certificación Cuenta al Día</span>
+                                <span class="new-line">Por Equipos, Terminales y/o Tecnologías</span>
+                            </mat-card-content>
+                        </mat-card>
+                        <mat-card class="card-certificacion" (click)="isPerson()==true?validarCertificacionSubscripcion(true):alertOnlyPerson()">
+                            <mat-card-content>
+                                <img src="assets/img/Iconi.svg" width="70" align="center">
+                                <br><br>
+                                <span class="new-line">Certificación Cuenta al Día</span>
+                                <span class="new-line">Por Suscripción +</span>
+                                <span class="new-line">Equipos, Terminales y/o Tecnologías</span>
+                            </mat-card-content>
+                        </mat-card>
+                        <mat-card class="card-certificacion" (click)="isPerson()==true?validarUniqueCustomerCertification():alertOnlyPerson()">
+                            <mat-card-content>
+                                <img src="assets/img/Iconi.svg" width="70" align="center">
+                                <br><br>
+                                <span class="new-line">Certificación Cuenta al Día</span>
+                                <span class="new-line">Cliente Único</span>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </mat-card>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <!--  <mat-expansion-panel style="margin-top: 2px;" *ngFor="let suscripcion of suscripciones; let i= index" [expanded]="step === i" (opened)="setStep(i)" hideToggle>
+            <mat-expansion-panel-header [ngClass]="{'color-acordion-principal': i == 0, 'color-acordion-secundario': i != 0}">
+                <mat-panel-description>
+                    <span style="color: white;">Suscripción {{suscripcion.serviceName[0]}}</span>
+                    <mat-icon style="color: white;">add_circle</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <section>
+                <mat-checkbox color="warn" class="check-margin">Suscripción {{suscripcion.id[0]}}</mat-checkbox>
+                <button mat-raised-button class="btn-generar" (click)="GenerarCertificado(suscripcion, false)">Generar Certificado</button>
+            </section>
+        </mat-expansion-panel>
+    </div-->
+
+    <div *ngFor="let suscripcion of suscripciones; let i= index">
+        <mat-card (click)="suscripcion.detail = !suscripcion.detail" [ngClass]="{'color-acordion-principal': i == 0, 'color-acordion-secundario': i != 0}" style=" cursor: pointer;">
+            <mat-card-title-group>
+                <mat-card-title><span style="color:white; font-size: 20px;">Suscripción {{suscripcion.serviceName[0]}}</span></mat-card-title>
+                <mat-icon style="color: white;">add_circle</mat-icon>
+            </mat-card-title-group>
+        </mat-card>
+        <mat-card *ngIf="suscripcion.detail">
+            <mat-card-content>
+                <mat-checkbox color="warn" class="check-margin">Suscripción {{suscripcion.id[0]}}</mat-checkbox>
+                <button mat-raised-button class="btn-generar" (click)="GenerarCertificado(suscripcion, false)">Generar Certificado</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>
+
+<!-- CERTIFICACION DE CUENTA AL DIA PARA BSCS-->
+
+<div class="container" *ngIf="this.certificationData.source != 'INS'">
+    <mat-card>
+        <div class="validar-titulo-grid-container">
+            <div class="validar-titulo-Seccion1">
+                <img src="assets/img/report.png" width="20" height="20" align="left">
+                <div class="app-label">Documento</div>
+            </div>
+        </div>
+        <mat-card-content>
+            <div class="center">
+                <mat-card class="cert-cuenta-card">
+                    <mat-card-content>
+                        <img width="80px" height="80px" src="assets/img/Icono-1.png" alt="Certificado de cuenta" />
+                        <br />
+                        <strong class="new-line">DOCUMENTO CERTIFICADO</strong>
+                        <strong class="new-line">CUENTA AL DÍA</strong>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <div *ngIf="!inDebt" class="cont-buttons">
+                            <button (click)="goToDynamicDocument()" mat-button>
+                <span class="material-icons">visibility</span>
+                Ver documento
+              </button>
+                            <button [disabled]="!dataOk" (click)="showEmailModal()" mat-button>
+                <span class="material-icons">mail_outline</span>
+                Enviar por correo
+              </button>
+                            <button [disabled]="!dataOk" (click)="showSendResidenceModal()" mat-button>
+                <span class="material-icons">local_shipping</span>
+                Enviar a domicilio
+              </button>
+
+                        </div>
+
+                        <div *ngIf="inDebt">
+                            <h2><i><span class="material-icons">block</span>{{ messageDebt }}<strong *ngIf="amountDebt > 0">{{ amountDebt | currency }}</strong></i></h2>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+</div>

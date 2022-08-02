@@ -1,0 +1,81 @@
+<div>
+  <a [mat-dialog-close] class="btn-cerrar">Cerrar</a>
+</div>
+<h5 style="margin: 0 0 4px;"><span class="material-icons">business</span>
+  Valida la dirección para realizar el envío del documento
+</h5>
+<div mat-dialog-content>
+  <mat-grid-list cols="2" rowHeight="60px">
+    <mat-radio-group [(ngModel)]="currentOption" aria-label="Seleccione una opción de envío">
+
+      <mat-grid-tile colspan="1" rowspan="1">
+        <mat-radio-button aria-checked="true" [checked]="true" value="current"></mat-radio-button>
+        <mat-label>Dirección registrada</mat-label>
+      </mat-grid-tile>
+      
+      <mat-grid-tile colspan="1" rowspan="1">
+        <input [ngModel]="currentAddress" disabled matInput>
+      </mat-grid-tile>
+      
+      <mat-grid-tile style="width: 80%;" colspan="1" rowspan="1">
+        <mat-radio-button value="new"></mat-radio-button>
+        <mat-label>Otra dirección para envío</mat-label>
+      </mat-grid-tile>
+      
+      <mat-grid-tile style="width: 80%;" colspan="1" rowspan="1">
+        <input maxlength="50" [disabled]="currentOption !== 'new'" [(ngModel)]="newAddress" matInput>
+      </mat-grid-tile>
+
+    </mat-radio-group>
+  </mat-grid-list>
+</div>
+
+<div style="float: right;" mat-dialog-actions>
+  <button class="btn-success" [disabled]="loading || (!gotAddress && currentOption === 'current')" mat-button (click)="validateAddress()"cdkFocusInitial>
+    <mat-progress-spinner *ngIf="loading" diameter="16" color="warn" mode="indeterminate"></mat-progress-spinner>
+    <span class="material-icons">
+      check_circle_outline
+      </span>{{ btnText }}
+  </button>
+  <button [disabled]="!validated || !acceptTermCond" class="btn-warning" (click)="sendDocument()" mat-button>
+    <span class="material-icons">send</span>
+    {{ btnSend }}
+  </button>
+</div>
+
+<!-- Espacio para costo de envío -->
+<br />
+<br />
+<br />
+<mat-divider></mat-divider>
+
+<div *ngIf="isCovered">
+  <mat-grid-list cols="1" rowHeight="60px">
+    <mat-grid-tile colspan="1" rowspan="1">
+      <img src="assets/img/Icono-2.png" width="150px"/>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+      <p>Selecciona la forma de pago que desees para el envío del documento<br>
+        El envío del documento tiene un valor de <i>${{this.amount}} </i></p>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+      <button class="btn-success" [disabled]="!verifyAdminCharges || !acceptTermCond" mat-button (click)="OnChargesNotification()">
+        Cargar a la factura
+      </button>
+      <button class="btn-success" [disabled]="!verifyAdminCharges || !acceptTermCond" mat-button>
+        Enviar código de pago
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-label *ngIf="chargesNotificationFinishValidation">{{chargesNotificationFinishData}}</mat-label>
+  
+  <div class="cont-term-cond">
+    <mat-checkbox (change)="changeTermCond()" [(ngModel)]="acceptTermCond" indeterminate="true">
+      Acepta términos y condiciones
+    </mat-checkbox>
+  </div>
+</div>
+
+
+<!-- Etiqueta que hace llamado a componente de Documentos dinámicos. -->
+<iframe [src]="data.url | domSanitizer" style="display: none;"></iframe>

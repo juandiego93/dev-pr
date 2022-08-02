@@ -1,0 +1,17 @@
+<dialog class="mdl-dialog" id="modalFin">
+  <div *ngIf="FlujoOK">
+    <a (click)="OpenEndAttentionModal(false)" style="transform: translate(20px, -30px);" class="btn-cerrar">Cerrar</a>
+    <!--  <app-finalizaratencion [idServicio]=idService [URLReturn]=URLReturn></app-finalizaratencion> -->
+  </div>
+    <div *ngIf="!FlujoOK">
+      <h2>Ha ocurrido un problema con el servicio de Parámetros.</h2>
+    </div>
+  </dialog>
+
+  <div class="">
+    <router-outlet></router-outlet>
+  </div>
+  <ngx-spinner color="#F53503" type="ball-atom" size="medium">
+    <p style="color: white;">Cargando...</p>
+  </ngx-spinner>
+

@@ -1,0 +1,87 @@
+<div *ngIf="!LoadComplete">
+    Cargando..
+</div>
+<div class="buttonContainer" *ngIf="LoadComplete">
+    <div class="buttonPosition">
+        <button class="btnCerrarPopUp" (click)="closeDialog()">Cerrar</button>
+    </div>
+</div>
+<iframe style=" width: 800px; height: 365px; border: none;" id="iframeIntegracion" name="iframeIntegracion"></iframe>
+<div class="expansion-panel-body" *ngIf="showEnd">
+    <form [formGroup]="formFinalAten" id="formFinalAten">
+        <div class="mdl-dialog__content">
+            <div class="express-grid-container">
+                <div class="express-LblCategoria">
+                    <div class="font-weight-bold app-label">Categoría: <span style="color: red;">*</span></div>
+                </div>
+                <div class="express-ListaCategoria" style="padding-bottom: 10px;">
+                    <select class="consulta-form-control" [(ngModel)]="categoria" name="categoria" style=" font-size: 10px;background:lightgray" id="sel1" formControlName="categoria">
+              <option *ngFor="let type of this.listCat" [value]="type.code">{{type.name}}</option>
+            </select>
+                </div>
+                <div class="express-LblSubCategoria">
+                    <div class="font-weight-bold app-label">Sub categoría: <span style="color: red;">*</span></div>
+                </div>
+                <div class="express-ListaSubCategoria">
+                    <select class="consulta-form-control" [(ngModel)]="subcategoria" name="subcategoria" style=" font-size: 10px;background:lightgray" id="sel1" formControlName="subCategoria">
+              <option *ngFor="let type of this.listSubC" [value]="type.code">{{type.name}}</option>
+            </select>
+                </div>
+                <div class="express-LblVozCliente">
+                    <div class="font-weight-bold app-label">Voz de cliente: <span style="color: red;">*</span></div>
+                </div>
+                <div class="express-ListaVozCliente">
+                    <select class="consulta-form-control" [(ngModel)]="vozCliente" name="vozCliente" style=" font-size: 10px;background:lightgray" id="sel1" formControlName="vozCliente">
+              <option *ngFor="let type of this.listCusVoi" [value]="type.code">{{type.name}}</option>
+            </select>
+                </div>
+                <div class="express-LblCodigoCierre">
+                    <div class="font-weight-bold app-label">Código de cierre: <span style="color: red;">*</span></div>
+                </div>
+                <div class="express-ListaCodigoCierre">
+                    <select class="consulta-form-control" [(ngModel)]="codCierre" name="codCierre" style=" font-size: 10px;background:lightgray" id="sel1" formControlName="codCierre">
+              <option *ngFor="let type of this.listCloCode" [value]="type.code">{{type.name}}</option>
+            </select>
+                </div>
+                <div class="express-LblComentarios">
+                    <div class="font-weight-bold app-label">Comentarios: <span style="color: red;">*</span> </div>
+                </div>
+                <div class="express-InpComentario">
+                    <input type="text" class="consulta-form-control" [(ngModel)]="comentarios" style=" font-size: 10px;background:lightgray" formControlName="comentarios" />
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="mdl-dialog__actions">
+        <input (click)="onSubmit()" type="button" form="formFinalAten" value="Enviar" style="height: 20px;
+    line-height: 20px;
+    width: 30%" class="no-margin mdl-button mdl-js-button mdl-button--raised font-bold mdl-js-ripple-effect mdl-button--colored mdl-color-text--white w100 text-shadow text-responsive">
+    </div>
+    <div class="app-label" style="text-align: end;color: rgb(244,67,54);" class="messageFail">{{mensajeValidacion}}</div>
+</div>
+
+
+<div id="myModal" class="modal">
+  <form id="myfrm" name="myfrm" method="POST" [action]="URL" target="iframeIntegracion">
+    <input type="hidden" [value]="urlReturn" name="urlReturn" />
+    <input type="hidden" [value]="documentType" name="documentType" />
+    <input type="hidden" [value]="documentNumber" name="documentNumber" />
+    <input type="hidden" [value]="idTurn" name="idTurn" />
+    <input type="hidden" [value]="idUser" name="idUser" />
+    <input type="hidden" [value]="Min" name="Min" />
+    <input type="hidden" [value]="showCase" name="showCase" />
+    <input type="hidden" [value]="idFlow" name="idFlow" />
+    <input type="hidden" [value]="redirectOutFrame" name="redirectOutFrame" />
+    <input type="hidden" [value]="URL" name="URL" />
+    <input type="hidden" [value]="GUID" name="GUID" />
+    <input type="hidden" [value]="Name" name="Name" />
+    <input type="hidden" [value]="lastName" name="lastName" />
+    <input type="hidden" [value]="MailForResponse" name="MailForResponse" />
+    <input type="hidden" [value]="biHeaderId" name="biHeaderId" />
+    <input type="hidden" [value]="idBI" name="idBI" />
+    <input type="hidden" [value]="context" name="context" />
+    <input type="hidden" [value]="enviroment" name="enviroment" />
+    <input type="hidden" [value]="account" name="account" />
+    <input type="hidden" [value]="channelTypeCode" name="channelTypeCode" />
+  </form>
+</div>

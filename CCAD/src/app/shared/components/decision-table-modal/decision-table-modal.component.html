@@ -1,0 +1,14 @@
+<div style="width:25em;height:100%;">
+  <div><a [mat-dialog-close] class="btn-cerrar">Cerrar</a></div><br />
+  <div class="title-decision-modal">
+    {{ruleDescription}}
+  </div>
+  <div class="row">
+    <div class="block" *ngFor="let item of listrulesFilter[0].ruleValues">
+      <button class="RenderButton block"  [ngStyle]="{'background-color': item.color}" (click)="SelectButton(item)">{{item.value}}</button>
+    </div>
+  </div>
+</div>
+
+
+

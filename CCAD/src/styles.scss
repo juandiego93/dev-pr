@@ -1,0 +1,155 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$certificacion-cuenta-primary: mat-palette($mat-indigo);
+$certificacion-cuenta-accent: mat-palette($mat-pink, A200, A100, A400);
+// The warn palette is optional (defaults to red).
+$certificacion-cuenta-warn: mat-palette($mat-red);
+// Create the theme object (a Sass map containing all of the palettes).
+$certificacion-cuenta-theme: mat-light-theme($certificacion-cuenta-primary, $certificacion-cuenta-accent, $certificacion-cuenta-warn);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($certificacion-cuenta-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+    margin: 2em;
+}
+
+mat-toolbar {
+    background: white !important;
+}
+
+.btn-close {
+    color: white;
+    cursor: pointer;
+    float: right;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: red;
+    font-weight: bold;
+    text-align-last: center;
+    transform: translate(-10px, -10px);
+}
+
+.new-line {
+    width: 100%;
+    display: inline-block;
+}
+
+.cont-buttons button {
+    margin-right: 5px;
+    background-color: #008800 !important;
+    color: white;
+}
+
+button.btn-dark {
+    text-transform: capitalize;
+}
+
+.mdl-button {
+    text-transform: capitalize;
+}
+
+.btn-dark {
+    background-color: #616161;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 20px;
+    line-height: 20px !important;
+    width: 100%;
+}
+
+.no-overscroll {
+    overflow: hidden;
+}
+
+button.btn-dark,
+input.mdl-button,
+button.btn-success,
+button.btn-warning,
+.cont-buttons button {
+    border-radius: 20px;
+    line-height: 22px;
+    height: 22px;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.mat-card-actions .mat-button {
+    margin: 2px !important;
+}
+
+button[mat-button],
+button.btn-success.mat-button {
+    background-color: #008800;
+    color: white;
+}
+
+div a.btn-cerrar {
+    text-decoration: underline;
+    float: right;
+    cursor: pointer;
+    color: black;
+}
+
+#modalAlerta {
+    padding: 5px !important;
+    background-color: green;
+    color: white;
+    font-size: 14px;
+    opacity: 80%;
+}
+
+#modalAlertaFail {
+    padding: 5px !important;
+    background-color: #da291c;
+    color: white;
+    font-size: 14px;
+    opacity: 80%;
+}
+
+.divBtnCancelar {
+    bottom: 1px;
+    right: 40px;
+    position: absolute;
+    padding: 0%;
+    margin: 0%;
+    cursor: pointer;
+    min-width: 110px;
+}
+
+.btnAlert {
+    float: right;
+    border: none;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btnAlert:focus {
+    outline: 0;
+}

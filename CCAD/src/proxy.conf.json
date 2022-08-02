@@ -1,0 +1,12 @@
+{
+"/CMatricesAs400Services-war/webresources/address/*": {
+  "target": "http://100.126.0.150:12271",
+  "secure": "false",
+  "changeOrigin": ""
+},
+"/api/*": {
+  "target": "http://172.23.3.128:8000",
+  "secure": "false",
+  "changeOrigin": true
+}
+}

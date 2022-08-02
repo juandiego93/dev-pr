@@ -1,0 +1,90 @@
+.tamano {
+    padding: 0px;
+    height: 22px;
+}
+
+.boton-rojo {
+    background-color: #ef3829;
+    color: white;
+}
+
+.boton-rojo:hover {
+    background-color: #b7202e;
+    color: white;
+}
+
+.input-peque {
+    font-size: 12px;
+    height: 22px;
+    padding: 0px 5px;
+}
+
+.col-form-label {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 0px;
+}
+
+.btn {
+    font-size: 12px;
+    border: 0px;
+}
+
+.btn-success {
+    background-color: #008000;
+}
+
+.btn-success:hover {
+    background-color: #016901;
+}
+
+.text-success {
+    font-size: 12px;
+    color: #008000;
+}
+
+.btn-secondary {
+    background-color: #757575;
+}
+
+.btn-secondary:hover {
+    background-color: #6b6969;
+}
+
+.btn-danger {
+    background-color: #DA291C;
+}
+
+.text-danger {
+    font-size: 12px;
+    color: #DA291C!important;
+}
+
+.btn-danger:hover {
+    background-color: #aa1a10;
+}
+
+.h5 {
+    font-size: 20px;
+}
+
+.close {
+    font-size: 14px;
+    color: white;
+    background-color: #008000CC;
+}
+
+.alerta-negativa {
+    color: white;
+    background-color: #B1070FC7;
+}
+
+.alerta-positiva {
+    color: white;
+    background-color: #008000CC;
+}
+
+.mdl-dialog {
+    width: fit-content !important;
+    min-width: 40% !important;
+}

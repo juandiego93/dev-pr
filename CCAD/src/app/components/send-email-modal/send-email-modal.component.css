@@ -1,0 +1,71 @@
+.cont-buttons button {
+    margin-right: 5px;
+    background-color: #4DAF51;
+    color: white;
+}
+
+.error-text {
+    color: #DC3545;
+}
+
+mat-progress-spinner {
+    float: left;
+    margin: 10px 5px 0px -10px;
+}
+
+.disabled {
+    opacity: 0.6;
+}
+
+.field-md {
+    width: 310px;
+}
+
+.titulo-Email {
+    grid-area: titulo-CAD;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: 500;
+    font-stretch: normal;
+    font-size: 20px;
+    line-height: 32px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.hr-red-line {
+    border-top: 5px solid #da291c;
+    color: #da291c;
+    border-radius: 10%;
+    margin: 2px 0 10px;
+    width: 240px;
+}
+
+#title-cert-cad {
+    font-weight: bold;
+}
+
+div a.btn-cerrar-email {
+    float: right;
+    cursor: pointer;
+    color: gray;
+}
+
+.formulario {
+    padding-bottom: 30px;
+}
+
+.input-caja {
+    width: 500px;
+    color: gray;
+}
+
+.content-scroll {
+    padding: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

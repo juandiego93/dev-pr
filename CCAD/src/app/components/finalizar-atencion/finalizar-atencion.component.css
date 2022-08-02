@@ -1,0 +1,82 @@
+@import '../../../app.scss';
+.expansion-panel-popup {
+  padding: 7px 5px 5px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  background: white;
+margin-left: 60px;
+margin-right: 60px;
+margin-top: 80px;
+margin-bottom: 20px;
+
+
+}
+ .formretur360-container-heder {
+  display: grid;
+  grid-template-columns: 1fr ;
+  grid-template-rows:  1fr;
+  grid-template-areas: "formretur360-heder1";
+  grid-auto-rows: max-content;
+  padding-top:20px;
+
+}
+
+.formretur360-heder1{
+  grid-area:formretur360-heder1;
+  justify-self: center;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.formretur360-container-main {
+  display: grid;
+  grid-template-columns: 1fr  ;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr ;
+  grid-template-areas: "formretur360-main1" "formretur360-main2 " "formretur360-main3 " "formretur360-main4" " formretur360-main5";
+  justify-self: center;
+}
+.formretur360-main1{
+  grid-area:formretur360-main1;
+
+
+
+}
+.formretur360-main2{
+  grid-area:formretur360-main2;
+
+
+}
+
+.formretur360-main3{
+  grid-area:formretur360-main3;
+
+
+
+}
+.formretur360-main4{
+  grid-area:formretur360-main4;
+  justify-self: center;
+}
+
+.formretur360-main5{
+  grid-area:formretur360-main5;
+  margin-left: -120%;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+
+
+.buttonContainer {
+  position: relative;
+  padding-top: 1em;
+  margin-right: 1.4em;
+}
+
+
+.buttonPosition {
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background: #f7f7f7;
+}

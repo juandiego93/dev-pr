@@ -1,0 +1,190 @@
+@import '../../../app.scss';
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.cert-cuenta-card {
+    width: 100%;
+    text-align: center;
+}
+
+.material-icons {
+    margin-right: 3px;
+}
+
+.mdl-dialog {
+    width: fit-content !important;
+    min-width: 30% !important;
+}
+
+.expansion-panel-body {
+    padding: 7px 5px 5px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    background: white;
+    margin-top: 1em;
+}
+
+.certificado-botones-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "titulo-CAD certificado-botones-FinalizarAtencion";
+    column-gap: 5px;
+    align-items: center;
+}
+
+.certificado-botones-FinalizarAtencion {
+    grid-area: certificado-botones-FinalizarAtencion;
+    padding-right: 10px;
+    justify-self: end;
+}
+
+.certificado-botones-Regresar {
+    grid-area: certificado-botones-Regresar;
+    padding-right: 10px;
+    justify-self: end;
+}
+
+.titulo-CAD {
+    grid-area: titulo-CAD;
+    margin: 10px 10px;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: 500;
+    font-stretch: normal;
+    font-size: 20px;
+    line-height: 32px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.hr-red-line {
+    border-top: 5px solid #da291c;
+    color: #da291c;
+    border-radius: 10%;
+    margin: 2px 0 10px;
+    width: 280px;
+}
+
+#title-cert-cad {
+    font-weight: bold;
+}
+
+.card-certificacion {
+    margin-right: 1%;
+    width: 25%;
+    cursor: pointer !important;
+}
+
+.acordion-headers-align .mat-expansion-panel-header-title,
+.acordion-headers-align .mat-expansion-panel-header-description {
+    flex-basis: 0;
+}
+
+.acordion-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.acordion-headers-align .mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+.color-acordion-principal {
+    background-color: #da291c !important;
+}
+
+.color-acordion-secundario {
+    background-color: gray !important;
+}
+
+section {
+    margin: 10px 0;
+}
+
+.check-margin {
+    margin: 0 12px;
+}
+
+.btn-generar {
+    color: white;
+    border-radius: 20px !important;
+    background-color: green;
+}
+
+.accordion {
+    width: 800px;
+    margin: 90px auto;
+    color: black;
+    background-color: white;
+    padding: 45px 45px;
+}
+
+.accordion .container {
+    position: relative;
+    margin: 10px 10px;
+}
+
+
+/* Positions the labels relative to the .container. Adds padding to the top and bottom and increases font size. Also makes its cursor a pointer */
+
+.accordion .label {
+    position: relative;
+    padding: 10px 0;
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+
+/* Positions the plus sign 5px from the right. Centers it using the transform property. */
+
+.accordion .label::before {
+    content: '+';
+    color: black;
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    font-size: 30px;
+    transform: translateY(-50%);
+}
+
+
+/* Hides the content (height: 0), decreases font size, justifies text and adds transition */
+
+.accordion .content {
+    position: relative;
+    background: white;
+    height: 0;
+    font-size: 20px;
+    text-align: justify;
+    width: 780px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+
+/* Adds a horizontal line between the contents */
+
+.accordion hr {
+    width: 100;
+    margin-left: 0;
+    border: 1px solid grey;
+}
+
+.accordion .container.active .content {
+    height: 150px;
+}
+
+
+/* Changes from plus sign to negative sign once active */
+
+.accordion .container.active .label::before {
+    content: '-';
+    font-size: 30px;
+}

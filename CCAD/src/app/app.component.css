@@ -1,0 +1,39 @@
+@import '../app.scss';
+
+.certificado-botones-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". . knowledge-base certificado-botones-FinalizarAtencion";
+  column-gap: 5px;
+}
+
+.certificado-botones-FinalizarAtencion {
+  grid-area: certificado-botones-FinalizarAtencion;
+}
+
+.certificado-botones-Regresar {
+  grid-area: certificado-botones-Regresar;
+}
+
+.knowledge-base {
+  grid-area: knowledge-base;
+}
+
+.cont-title {
+  margin: 10px 10px;
+}
+
+.hr-red-line {
+  border-top: 5px solid #da291c;
+  color: #da291c;
+  border-radius: 10%;
+  margin: 2px 0 10px;
+}
+
+#title-cert-cad {
+  font-weight: bold;
+}
+
+
+
